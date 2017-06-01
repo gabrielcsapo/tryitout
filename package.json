@@ -1,0 +1,19 @@
+{
+  "name": "tryitout",
+  "version": "0.0.0",
+  "description": "a way to try out libraries on the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielcsapo/tryitout.git"
+  },
+  "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielcsapo/tryitout/issues"
+  },
+  "homepage": "https://github.com/gabrielcsapo/tryitout#readme"
+}
