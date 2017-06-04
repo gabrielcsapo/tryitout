@@ -1,3 +1,7 @@
+# 0.0.2 (06/03/2017)
+
+- fix exclude for babel-loader when installed as an npm module
+
 # 0.0.1 (06/03/2017)
 
 - basic functionality
