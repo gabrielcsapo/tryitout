@@ -1,0 +1,19 @@
+{
+    "title": "tryitout",
+    "description": "Building libraries should be the main priority. Once you do that, it should be about sharing them with the world.",
+    "source": "https://github.com/gabrielcsapo/tryitout",
+    "body": [{
+      "type": "text",
+      "value": "> [`tryitout`](https://github.com/gabrielcsapo/tryitout) allows you to quickly create a demo page for any frontend library or framework you create!"
+    },{
+      "type": "code",
+      "title": "Hello",
+      "value": "function Hello(){\n    return 'hello world'\n}\nHello();"
+    },{
+      "type": "text",
+      "value": "Using this is so simple, just simple create a tryitout.json file with the contents adhering to the following \n```json\n{\n   \"title\":\"String\"\n   \"description\":\"String\"\n   \"source\":\"Url\",\n   \"output\":\"Path\"\n   \"body\":\"Array\",\n   \"externals\":\"Array\"\n}\n```\n\nThen all you need to do is run `tryitout`"
+    }],
+    "externals": [
+      "./doc.js"
+    ]
+}
