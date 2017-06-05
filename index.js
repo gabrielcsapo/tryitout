@@ -53,13 +53,14 @@ class Editor extends React.Component {
     });
   }
   render() {
-    const { title } = this.props;
+    const { title, subtitle } = this.props;
     const { value, output, duration } = this.state;
     const { cons, val } = output;
 
     return (<div style={{ paddingTop: '25px' }}>
         <div className="text-left text-black">
             { title }
+            { subtitle ? <div><small> { subtitle } </small></div> : '' }
         </div>
         <br/>
         <div className="panel">
@@ -96,8 +97,9 @@ class Editor extends React.Component {
 }
 
 Editor.propTypes = {
-    value: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    value: PropTypes.string
 };
 
 class Text extends React.Component {

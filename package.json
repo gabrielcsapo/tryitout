@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a way to try out libraries on the browser",
   "main": "./bin/index.js",
   "scripts": {
