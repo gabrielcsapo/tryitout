@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const path = require('path');
 const program = require('commander');
+const ora = require('ora');
 const compile = require('../lib/compile');
 const watch = require('../lib/watch');
 
@@ -21,7 +22,11 @@ const source = Object.assign(require(sourcePath), {
 const output = path.resolve(process.cwd(), source.output || program.output);
 
 if(!program.watch) {
-  compile(source, output);
+  const spinner = ora('Generating tryitout document...').start();
+  compile(source, output, (error) => {
+    if(error) return spinner.fail(error); // eslint-disable-line
+    spinner.succeed('Generated tryitout document!')
+  });
 } else {
   watch(source, output);
 }

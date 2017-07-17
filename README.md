@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/gabrielcsapo/tryitout.svg?branch=master)](https://travis-ci.org/gabrielcsapo/tryitout)
 [![Dependency Status](https://david-dm.org/gabrielcsapo/tryitout.svg)](https://david-dm.org/gabrielcsapo/tryitout)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/tryitout/dev-status.svg)](https://david-dm.org/gabrielcsapo/tryitout#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/github/gabrielcsapo/tryitout/badge.svg?branch=master)](https://coveralls.io/github/gabrielcsapo/tryitout?branch=master)
+[![Coverage Status](https://node-coverage-server.herokuapp.com/badge/github%2Ecom/gabrielcsapo/tryitout.svg)](https://node-coverage-server.herokuapp.com/coverage/github%2Ecom/gabrielcsapo/tryitout)
 [![npm](https://img.shields.io/npm/dt/tryitout.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/tryitout.svg?maxAge=2592000)]()
 
