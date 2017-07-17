@@ -1,7 +1,12 @@
+# 0.0.4 (07/16/2017)
+
+- bin now has a fancy new spinner!
+- compile now allows a 3rd callback option
+- updates `webpack@^2.6.1` -> `webpack@3.3.0`
+
 # 0.0.3 (06/04/2017)
 
 - adds an option for adding a subtitle to a code block
-- bin now has a fancy new spinner!
 
 # 0.0.2 (06/03/2017)
 
