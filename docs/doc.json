@@ -12,6 +12,9 @@
     },{
       "type": "text",
       "value": "Using this is so simple, just simple create a `tryitout.json` file with the contents adhering to the following \n```json\n{\n   \"title\":\"String\"\n   \"description\":\"String\"\n   \"source\":\"Url\",\n   \"output\":\"Path\"\n   \"body\":\"Array\",\n   \"externals\":\"Array\"\n}\n```\n\nThen all you need to do is run `tryitout`"
+    },{
+      "type": "html",
+      "value": "<div style='text-align:center'><h3>Thanks for trying it out!</h3><small>bye!</small></div>"
     }],
     "externals": [
       "./doc.js"
