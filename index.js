@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import AceEditor from 'react-ace';
+import renderHTML from 'react-render-html';
 import Marked from 'marked';
 
 import 'brace/mode/javascript';
@@ -116,6 +117,22 @@ Text.propTypes = {
     value: PropTypes.string
 };
 
+class HTML extends React.Component {
+  render() {
+    const { value } = this.props;
+
+    return (
+      <div>
+        { renderHTML(value) }
+      </div>
+    )
+  }
+}
+
+HTML.propTypes = {
+    value: PropTypes.string
+};
+
 class Container extends React.Component {
   render() {
     const { title, description, source, children } = this.props;
@@ -157,6 +174,8 @@ render(<Container {...source}>
           return <Editor {...block} />
         case 'text':
           return <Text {...block} />
+        case 'html':
+          return <HTML {...block} />
       }
     })
   : '' }
