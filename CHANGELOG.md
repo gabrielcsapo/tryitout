@@ -1,3 +1,7 @@
+# 0.0.5 (07/21/2017)
+
+- be able to render html examples
+
 # 0.0.4 (07/16/2017)
 
 - bin now has a fancy new spinner!
