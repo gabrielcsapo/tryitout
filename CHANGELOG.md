@@ -1,3 +1,8 @@
+# 0.0.6 (08/07/2017)
+
+- updates dependencies
+- updates main docs
+
 # 0.0.5 (07/21/2017)
 
 - be able to render html examples

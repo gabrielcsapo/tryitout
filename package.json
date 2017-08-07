@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a way to try out libraries on the browser",
   "main": "./bin/index.js",
   "scripts": {
@@ -31,26 +31,26 @@
     "commander": "^2.9.0",
     "concat": "^1.0.3",
     "css-loader": "^0.28.4",
-    "express": "^4.15.3",
+    "express": "^4.15.4",
     "marked": "^0.3.6",
     "ora": "^1.3.0",
     "prop-types": "^15.5.10",
     "psychic-ui": "^1.0.6",
     "react": "^15.5.4",
-    "react-ace": "^5.0.1",
+    "react-ace": "^5.1.2",
     "react-dom": "^15.5.4",
     "react-render-html": "^0.5.0",
     "react-router": "^4.1.2",
     "style-loader": "^0.18.1",
-    "webpack": "^3.3.0",
-    "webpack-dev-middleware": "^1.10.2",
-    "webpack-dev-server": "^2.4.5",
+    "webpack": "^3.4.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.6.1",
     "webpack-hot-middleware": "^2.18.0"
   },
   "devDependencies": {
-    "eslint": "^4.2.0",
+    "eslint": "^4.4.0",
     "eslint-plugin-react": "^7.0.1",
-    "tap": "^10.7.0",
-    "tape": "^4.7.0"
+    "tap": "^10.7.1",
+    "tape": "^4.8.0"
   }
 }
