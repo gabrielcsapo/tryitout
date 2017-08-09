@@ -9,8 +9,8 @@
             setTimeout(function(c) {
                 return function() { document.querySelector('.description').innerHTML = document.querySelector('.description').innerHTML + c; }
             }(letters[i]), 50 * i);
-        };
-        
+        }
+
         var buttons = document.querySelectorAll('.run');
         [].forEach.call(buttons, function(button) {
           button.click();
