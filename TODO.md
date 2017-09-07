@@ -1,0 +1,3 @@
+- [ ] abstract UI components from index.js
+- [ ] add more tests for compile and watch
+- [ ] add jsdoc

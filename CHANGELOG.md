@@ -1,3 +1,12 @@
+# 0.1.0 (09/07/2017)
+
+- drops support for node@4
+- watch command actually works
+- changes interface to both compile and watch
+- config can either be a `json` file or a `js` file that exports an object
+- bundles all assets in single html file
+- removes dependency on; concat, webpack-dev-server, webpack-dev-middleware, webpack-hot-middleware
+
 # 0.0.6 (08/07/2017)
 
 - updates dependencies

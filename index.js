@@ -11,6 +11,8 @@ import Marked from 'marked';
 import 'brace/mode/javascript';
 import 'brace/theme/monokai';
 
+const injectedSource = (window && window.source) || source;
+
 class Editor extends React.Component {
   constructor(props) {
     super(props);
@@ -166,9 +168,9 @@ Container.propTypes = {
     children: PropTypes.element.isRequired
 };
 
-render(<Container {...source}>
-  { source && source.body ?
-    source.body.map((block) => {
+render(<Container {...injectedSource}>
+  { injectedSource && injectedSource.body ?
+    injectedSource.body.map((block) => {
       switch(block.type) {
         case 'code':
           return <Editor {...block} />
