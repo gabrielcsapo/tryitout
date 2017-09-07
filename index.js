@@ -7,11 +7,16 @@ import { render } from 'react-dom';
 import AceEditor from 'react-ace';
 import renderHTML from 'react-render-html';
 import Marked from 'marked';
+import dedent from 'dedent';
 
 import 'brace/mode/javascript';
 import 'brace/theme/monokai';
 
 const injectedSource = (window && window.source) || source;
+
+function cleanString(string) {
+  return dedent(string || ''.trim())
+}
 
 class Editor extends React.Component {
   constructor(props) {
@@ -62,8 +67,8 @@ class Editor extends React.Component {
 
     return (<div style={{ paddingTop: '25px' }}>
         <div className="text-left text-black">
-            { title }
-            { subtitle ? <div><small> { subtitle } </small></div> : '' }
+            { cleanString(title) }
+            { subtitle ? <div><small> { cleanString(subtitle) } </small></div> : '' }
         </div>
         <br/>
         <div className="panel">
@@ -73,7 +78,7 @@ class Editor extends React.Component {
                 theme="monokai"
                 name={ Date.now() }
                 onChange={ this.onChange.bind(this) }
-                value={ value }
+                value={ cleanString(value) }
                 height='317px'
                 width='auto'
                 editorProps={{$blockScrolling: true}}
@@ -110,7 +115,7 @@ class Text extends React.Component {
     const { value } = this.props;
 
     return (
-      <div style={{ paddingTop: '50px', paddingBottom: '50px'}} dangerouslySetInnerHTML={{ __html: Marked(value) }}></div>
+      <div style={{ paddingTop: '50px', paddingBottom: '50px'}} dangerouslySetInnerHTML={{ __html: Marked(cleanString(value)) }}></div>
     )
   }
 }
@@ -125,7 +130,7 @@ class HTML extends React.Component {
 
     return (
       <div>
-        { renderHTML(value) }
+        { renderHTML(cleanString(value)) }
       </div>
     )
   }
@@ -146,12 +151,12 @@ class Container extends React.Component {
       <div style={{ "height":"100%", "width":"100%" }}>
         <div className="navbar navbar-center">
           <div className="container">
-            <div className="navbar-title"><span className="text-black">{ title }</span></div>
+            <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
             <div className="nav"> <a href={ source } target="_blank" rel="noopener noreferrer">Source</a> </div>
           </div>
         </div>
         <div>
-          <h5 className="text-center description"> { description }</h5>
+          <h5 className="text-center description"> { cleanString(description) }</h5>
           <div style={{ width: '550px', margin: '0 auto' }}>
             { children }
           </div>

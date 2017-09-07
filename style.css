@@ -1,58 +1,73 @@
 /* Overrides */
+
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', Helvetica, sans-serif;
-    width: 100%;
-    height: 100%;
-}
-.panel, .panel-body, .panel-footer, .panel-header {
-    border-radius: 0 !important;
-    padding: 0 !important;
-}
-.ace_editor {
-    font-size: 1em !important;
-}
-code {
-    color: rgba(255, 0, 0, 0.67);
-    display: inline-block;
-    padding: 0;
-}
-#root {
-    padding-bottom: 60px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
+.panel, .panel-body, .panel-footer, .panel-header {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.ace_editor {
+  font-size: 1em !important;
+}
+
+code {
+  color: rgba(255, 0, 0, 0.67);
+  display: inline-block;
+  padding: 0;
+}
+
+#root {
+  padding-bottom: 60px;
+}
+
+blockquote {
+  margin: 0;
+}
+
+
 /* Custom */
+
 .description {
-    text-align: center;
-    font-weight: 100;
-    font-size: 18px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 18px;
 }
+
 .console {
-    border-top: 1px solid #CCC;
-    font-family: monospace;
-    padding: 2px 2px 2px 8px;
-    line-height: 28px;
-    min-height: 26px;
+  border-top: 1px solid #CCC;
+  font-family: monospace;
+  padding: 2px 2px 2px 8px;
+  line-height: 28px;
+  min-height: 26px;
 }
+
 .console .output {
-    color: #666;
-    width: 80%;
-    display: inline-block;
+  color: #666;
+  width: 80%;
+  display: inline-block;
 }
+
 .time {
-    color: #666;
-    font-family: monospace;
-    line-height: 13px;
-    padding: 8px;
-    font-size: 13px;
+  color: #666;
+  font-family: monospace;
+  line-height: 13px;
+  padding: 8px;
+  font-size: 13px;
 }
+
 .run.btn {
-    margin: 10px;
-    float: right;
-    background-color: rgb(81, 163, 81);
-    color: white;
-    border-radius: 0px;
-    padding: 0 10px;
-    line-height: 28px;
+  margin: 10px;
+  float: right;
+  background-color: rgb(81, 163, 81);
+  color: white;
+  border-radius: 0px;
+  padding: 0 10px;
+  line-height: 28px;
 }
