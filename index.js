@@ -142,7 +142,7 @@ HTML.propTypes = {
 
 class Container extends React.Component {
   render() {
-    const { title, description, source, children } = this.props;
+    const { title, description, docs, source, children } = this.props;
 
     // Set the title of the window
     document.title = title;
@@ -152,7 +152,10 @@ class Container extends React.Component {
         <div className="navbar navbar-center">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
-            <div className="nav"> <a href={ source } target="_blank" rel="noopener noreferrer">Source</a> </div>
+            <div className="nav">
+              <a href={ source } target="_blank" rel="noopener noreferrer">Source</a>
+              { docs ? <a href={ docs } target="_blank" rel="noopener noreferrer">Docs</a> : '' }
+            </div>
           </div>
         </div>
         <div>
@@ -170,6 +173,7 @@ Container.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     source: PropTypes.string,
+    docs: PropTypes.string,
     children: PropTypes.element.isRequired
 };
 

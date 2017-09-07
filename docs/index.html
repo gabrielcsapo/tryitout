@@ -42920,7 +42920,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var injectedSource = window && window.source || {"title":"tryitout","description":"Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉","source":"https://github.com/gabrielcsapo/tryitout","body":[{"type":"text","value":"\n        > [`tryitout`](https://github.com/gabrielcsapo/tryitout) 🎩 a way to build interactive doc pages with configuration files\n      "},{"type":"text","value":"\n        Using this is so simple, just simple create a `tryitout.json` or `tryitout.js` file with the contents that adhere to the following schema:\n\n        ```json\n        {\n         \"title\": \"String\"\n         \"description\": \"String\"\n         \"source\": \"Url\",\n         \"output\": \"Path\"\n         \"body\": \"Array\",\n         \"externals\": \"Array\"\n        }\n        ```\n\n        Then all you need to do is run `tryitout`\n\n        A common use case for doc websites is to show off functionality in a `commonjs` module.\n\n        In the example below `extra` is a function that is exposed globally in `docs/extra.js`.\n\n        It exposed to this page via the externals attribute as such:\n\n        ```js\n        \"externals\": [\n          \"./docs/extra.js\"\n        ]\n        ```\n        "},{"type":"code","title":"A simple code example","value":"\n        function Hello() {\n          return extra('hello world');\n        }\n        Hello();\n      "},{"type":"text","value":"\n        The easiest way to get started is by creating `tryitout.js` in your current working directory with the contents:\n\n        ```js\n        module.exports = {\n            title: \"Hello World\",\n            description: \"When you want a hello world example and just want a simple example cli\",\n            source: \"https://github.com/gabrielcsapo/tryitout\",\n            body: [{\n              type: \"text\",\n              value: `\n                To write a simple hello world function simply do the following\n              `\n            },{\n              type: \"code\",\n              title: \"Hello World Example\",\n              value: `\n                function Hello() {\n                  return 'hello world'\n                }\n              `\n            }],\n            output: \"./docs\"\n        }\n        ```\n\n        Then run `tryitout --watch`, this will spawn a webserver and editing the file will show results on subsequent page loads\n      "},{"type":"html","value":"\n        <div style='text-align:center'>\n          <h3>Thanks for trying it out 😉</h3>\n          <small>Add some cool examples of what you are using this for 🚀</small>\n        </div>\n      "}],"output":"./docs","externals":["./docs/extra.js"],"path":"/Users/gabrielcsapo/Documents/tryitout/tryitout.js"};
+var injectedSource = window && window.source || {"title":"tryitout","description":"Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉","source":"https://github.com/gabrielcsapo/tryitout","docs":"https://github.com/gabrielcsapo/tryitout","body":[{"type":"text","value":"\n        > [`tryitout`](https://github.com/gabrielcsapo/tryitout) 🎩 a way to build interactive doc pages with configuration files\n      "},{"type":"text","value":"\n        Using this is so simple, just simple create a `tryitout.json` or `tryitout.js` file with the contents that adhere to the following schema:\n\n        ```json\n        {\n         \"title\": \"String\"\n         \"description\": \"String\"\n         \"source\": \"Url\",\n         \"docs\": \"Url\",\n         \"output\": \"Path\"\n         \"body\": \"Array\",\n         \"externals\": \"Array\"\n        }\n        ```\n\n        Then all you need to do is run `tryitout`\n\n        A common use case for doc websites is to show off functionality in a `commonjs` module.\n\n        In the example below `extra` is a function that is exposed globally in `docs/extra.js`.\n\n        It exposed to this page via the externals attribute as such:\n\n        ```js\n        \"externals\": [\n          \"./docs/extra.js\"\n        ]\n        ```\n        "},{"type":"code","title":"A simple code example","value":"\n        function Hello() {\n          return extra('hello world');\n        }\n        Hello();\n      "},{"type":"text","value":"\n        The easiest way to get started is by creating `tryitout.js` in your current working directory with the contents:\n\n        ```js\n        module.exports = {\n            title: \"Hello World\",\n            description: \"When you want a hello world example and just want a simple example cli\",\n            source: \"https://github.com/gabrielcsapo/tryitout\",\n            docs: \"https://github.com/gabrielcsapo/tryitout/docs\",\n            body: [{\n              type: \"text\",\n              value: `\n                To write a simple hello world function simply do the following\n              `\n            },{\n              type: \"code\",\n              title: \"Hello World Example\",\n              value: `\n                function Hello() {\n                  return 'hello world'\n                }\n              `\n            }],\n            output: \"./docs\"\n        }\n        ```\n\n        Then run `tryitout --watch`, this will spawn a webserver and editing the file will show results on subsequent page loads\n      "},{"type":"html","value":"\n        <div style='text-align:center'>\n          <h3>Thanks for trying it out 😉</h3>\n          <small>Add some cool examples of what you are using this for 🚀</small>\n        </div>\n      "}],"output":"./docs","externals":["./docs/extra.js"],"path":"/Users/gabrielcsapo/Documents/tryitout/tryitout.js"};
 
 function cleanString(string) {
   return (0, _dedent2.default)(string || ''.trim());
@@ -43161,6 +43161,7 @@ var Container = function (_React$Component4) {
       var _props2 = this.props,
           title = _props2.title,
           description = _props2.description,
+          docs = _props2.docs,
           source = _props2.source,
           children = _props2.children;
 
@@ -43189,13 +43190,16 @@ var Container = function (_React$Component4) {
             _react2.default.createElement(
               'div',
               { className: 'nav' },
-              ' ',
               _react2.default.createElement(
                 'a',
                 { href: source, target: '_blank', rel: 'noopener noreferrer' },
                 'Source'
               ),
-              ' '
+              docs ? _react2.default.createElement(
+                'a',
+                { href: docs, target: '_blank', rel: 'noopener noreferrer' },
+                'Docs'
+              ) : ''
             )
           )
         ),
@@ -43225,6 +43229,7 @@ Container.propTypes = {
   title: _propTypes2.default.string,
   description: _propTypes2.default.string,
   source: _propTypes2.default.string,
+  docs: _propTypes2.default.string,
   children: _propTypes2.default.element.isRequired
 };
 

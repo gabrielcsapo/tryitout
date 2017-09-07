@@ -1,8 +1,12 @@
+# 0.1.2 (09/07/2017)
+
+- adds docs attribute
+
 # 0.1.1 (09/07/2017)
 
 - trims and removes tabs from strings if they are brought in from a es6 template string (cleans up look of config file)
 - updates psychic-ui@1.0.8 which fixes code tag not wrapping
-- removes margin from blockquotes 
+- removes margin from blockquotes
 
 # 0.1.0 (09/07/2017)
 

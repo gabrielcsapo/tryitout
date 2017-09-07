@@ -35,6 +35,7 @@ _tryitout.json_
     "title": "Hello World",
     "description": "When you want a hello world example and just want a simple example cli",
     "source": "https://github.com/gabrielcsapo/tryitout",
+    "docs": "https://github.com/gabrielcsapo/tryitout/docs",
     "body": [{
       "type": "text",
       "value": "To write a simple hello world function simply do the following"
@@ -55,6 +56,7 @@ module.exports = {
     title: "Hello World",
     description: "When you want a hello world example and just want a simple example cli",
     source: "https://github.com/gabrielcsapo/tryitout",
+    docs: "https://github.com/gabrielcsapo/tryitout/docs",
     body: [{
       type: "text",
       value: `
@@ -96,6 +98,7 @@ module.exports = {
     title: "Hello World",
     description: "When you want a hello world example and just want a simple example cli",
     source: "https://github.com/gabrielcsapo/tryitout",
+    docs: "https://github.com/gabrielcsapo/tryitout/docs",
     body: [{
       type: "text",
       value: `

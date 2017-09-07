@@ -2,6 +2,7 @@ module.exports = {
     "title": "tryitout",
     "description": "Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉",
     "source": "https://github.com/gabrielcsapo/tryitout",
+    "docs": "https://github.com/gabrielcsapo/tryitout",
     "body": [{
       "type": "text",
       "value": `
@@ -17,6 +18,7 @@ module.exports = {
          "title": "String"
          "description": "String"
          "source": "Url",
+         "docs": "Url",
          "output": "Path"
          "body": "Array",
          "externals": "Array"
@@ -56,6 +58,7 @@ module.exports = {
             title: "Hello World",
             description: "When you want a hello world example and just want a simple example cli",
             source: "https://github.com/gabrielcsapo/tryitout",
+            docs: "https://github.com/gabrielcsapo/tryitout/docs",
             body: [{
               type: "text",
               value: \`
