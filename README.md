@@ -1,13 +1,14 @@
 # tryitout
 
+> 🎩 a way to build interactive doc pages with configuration files
+
 [![Build Status](https://travis-ci.org/gabrielcsapo/tryitout.svg?branch=master)](https://travis-ci.org/gabrielcsapo/tryitout)
 [![Dependency Status](https://david-dm.org/gabrielcsapo/tryitout.svg)](https://david-dm.org/gabrielcsapo/tryitout)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/tryitout/dev-status.svg)](https://david-dm.org/gabrielcsapo/tryitout#info=devDependencies)
-[![Coverage Status](https://node-coverage-server.herokuapp.com/badge/github%2Ecom/gabrielcsapo/tryitout.svg)](https://node-coverage-server.herokuapp.com/coverage/github%2Ecom/gabrielcsapo/tryitout)
+[![Coverage Status](https://lcov-server.herokuapp.com/badge/github%2Ecom/gabrielcsapo/tryitout.svg)](https://lcov-server.herokuapp.com/coverage/github%2Ecom/gabrielcsapo/tryitout)
 [![npm](https://img.shields.io/npm/dt/tryitout.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/tryitout.svg?maxAge=2592000)]()
 
-> 🎩 a way to build interactive doc pages with configuration files
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
