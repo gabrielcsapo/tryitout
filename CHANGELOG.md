@@ -1,3 +1,7 @@
+# 0.1.3 (09/18/2017)
+
+- inlines assets which allows browserify files to be accessed
+
 # 0.1.2 (09/07/2017)
 
 - adds docs attribute
