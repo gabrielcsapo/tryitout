@@ -1,3 +1,8 @@
+# 0.1.4 (09/19/2017)
+
+- adds an options object that contains options to augment the page
+- fixes bug when trying to use the code examples and cleanString neuters the functionality
+
 # 0.1.3 (09/18/2017)
 
 - inlines assets which allows browserify files to be accessed

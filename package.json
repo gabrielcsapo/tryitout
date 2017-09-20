@@ -1,13 +1,13 @@
 {
   "name": "tryitout",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "tape test/**.js",
     "coverage": "tap test/**.js --coverage --coverage-report=lcov",
-    "generate-docs": "./bin/index.js --source=./docs/doc.json --output=./docs"
+    "generate-docs": "./bin/index.js"
   },
   "repository": {
     "type": "git",

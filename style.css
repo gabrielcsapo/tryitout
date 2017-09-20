@@ -54,6 +54,12 @@ blockquote {
   display: inline-block;
 }
 
+.console .output > pre {
+  padding: 0;
+  white-space: pre-wrap;
+  background-color: transparent;
+}
+
 .time {
   color: #666;
   font-family: monospace;

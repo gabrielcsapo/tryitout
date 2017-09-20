@@ -5,7 +5,33 @@
       <title></title>
       <meta name=viewport content="width=device-width, initial-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    </head>
+    <script type="text/javascript">(function() {
+    window.extra = function(name) {
+      return `!${name}!`
+    }
+    
+    window.onload = function() {
+        // clear the description
+        var words = document.querySelector('.description').textContent;
+        document.querySelector('.description').innerHTML = '';
+
+        var letters = words.split('');
+        for(var i = 0; i < letters.length; i++) {
+            setTimeout(function(c) {
+                if(c === '|') {
+                  return function() { document.querySelector('.description').innerHTML = document.querySelector('.description').innerHTML + '</br>'; }
+                }
+                return function() { document.querySelector('.description').innerHTML = document.querySelector('.description').innerHTML + c; }
+            }(letters[i]), 50 * i);
+        }
+
+        var buttons = document.querySelectorAll('.run');
+        [].forEach.call(buttons, function(button) {
+          button.click();
+        });
+    }
+}());
+</script></head>
     <body>
       <div id="root"></div>
     <script type="text/javascript">/******/ (function(modules) { // webpackBootstrap
@@ -42920,7 +42946,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var injectedSource = window && window.source || {"title":"tryitout","description":"Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉","source":"https://github.com/gabrielcsapo/tryitout","docs":"https://github.com/gabrielcsapo/tryitout","body":[{"type":"text","value":"\n        > [`tryitout`](https://github.com/gabrielcsapo/tryitout) 🎩 a way to build interactive doc pages with configuration files\n      "},{"type":"text","value":"\n        Using this is so simple, just simple create a `tryitout.json` or `tryitout.js` file with the contents that adhere to the following schema:\n\n        ```json\n        {\n         \"title\": \"String\"\n         \"description\": \"String\"\n         \"source\": \"Url\",\n         \"docs\": \"Url\",\n         \"output\": \"Path\"\n         \"body\": \"Array\",\n         \"externals\": \"Array\"\n        }\n        ```\n\n        Then all you need to do is run `tryitout`\n\n        A common use case for doc websites is to show off functionality in a `commonjs` module.\n\n        In the example below `extra` is a function that is exposed globally in `docs/extra.js`.\n\n        It exposed to this page via the externals attribute as such:\n\n        ```js\n        \"externals\": [\n          \"./docs/extra.js\"\n        ]\n        ```\n        "},{"type":"code","title":"A simple code example","value":"\n        function Hello() {\n          return extra('hello world');\n        }\n        Hello();\n      "},{"type":"text","value":"\n        The easiest way to get started is by creating `tryitout.js` in your current working directory with the contents:\n\n        ```js\n        module.exports = {\n            title: \"Hello World\",\n            description: \"When you want a hello world example and just want a simple example cli\",\n            source: \"https://github.com/gabrielcsapo/tryitout\",\n            docs: \"https://github.com/gabrielcsapo/tryitout/docs\",\n            body: [{\n              type: \"text\",\n              value: `\n                To write a simple hello world function simply do the following\n              `\n            },{\n              type: \"code\",\n              title: \"Hello World Example\",\n              value: `\n                function Hello() {\n                  return 'hello world'\n                }\n              `\n            }],\n            output: \"./docs\"\n        }\n        ```\n\n        Then run `tryitout --watch`, this will spawn a webserver and editing the file will show results on subsequent page loads\n      "},{"type":"html","value":"\n        <div style='text-align:center'>\n          <h3>Thanks for trying it out 😉</h3>\n          <small>Add some cool examples of what you are using this for 🚀</small>\n        </div>\n      "}],"output":"./docs","externals":["./docs/extra.js"],"path":"/Users/gabrielcsapo/Documents/tryitout/tryitout.js"};
+var injectedSource = window && window.source || {"title":"tryitout","description":"Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉","source":"https://github.com/gabrielcsapo/tryitout","docs":"https://github.com/gabrielcsapo/tryitout","body":[{"type":"text","value":"\n        > [`tryitout`](https://github.com/gabrielcsapo/tryitout) 🎩 a way to build interactive doc pages with configuration files\n      "},{"type":"text","value":"\n        Using this is so simple, just simple create a `tryitout.json` or `tryitout.js` file with the contents that adhere to the following schema:\n\n        ```json\n        {\n         \"title\": \"String\"\n         \"options\": \"Object\"\n         \"description\": \"String\"\n         \"source\": \"Url\",\n         \"docs\": \"Url\",\n         \"output\": \"Path\"\n         \"body\": \"Array\",\n         \"externals\": \"Array\"\n        }\n        ```\n\n        Then all you need to do is run `tryitout`\n\n        A common use case for doc websites is to show off functionality in a `commonjs` module.\n\n        In the example below `extra` is a function that is exposed globally in `docs/extra.js`.\n\n        It exposed to this page via the externals attribute as such:\n\n        ```js\n        \"externals\": [\n          \"./docs/extra.js\"\n        ]\n        ```\n        "},{"type":"code","title":"A simple code example","value":"\n        function Hello() {\n          return extra('hello world');\n        }\n        Hello();\n      "},{"type":"text","value":"\n        The easiest way to get started is by creating `tryitout.js` in your current working directory with the contents:\n\n        ```js\n        module.exports = {\n            title: \"Hello World\",\n            description: \"When you want a hello world example and just want a simple example cli\",\n            source: \"https://github.com/gabrielcsapo/tryitout\",\n            docs: \"https://github.com/gabrielcsapo/tryitout/docs\",\n            body: [{\n              type: \"text\",\n              value: `\n                To write a simple hello world function simply do the following\n              `\n            },{\n              type: \"code\",\n              title: \"Hello World Example\",\n              value: `\n                function Hello() {\n                  return 'hello world'\n                }\n              `\n            }],\n            output: \"./docs\"\n        }\n        ```\n\n        Then run `tryitout --watch`, this will spawn a webserver and editing the file will show results on subsequent page loads\n      "},{"type":"html","value":"\n        <div style='text-align:center'>\n          <h3>Thanks for trying it out 😉</h3>\n          <small>Add some cool examples of what you are using this for 🚀</small>\n        </div>\n      "}],"output":"./docs","externals":["./docs/extra.js"],"path":"/Users/gabrielcsapo/Documents/tryitout/tryitout.js"};
 
 function cleanString(string) {
   return (0, _dedent2.default)(string || ''.trim());
@@ -42935,7 +42961,7 @@ var Editor = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Editor.__proto__ || Object.getPrototypeOf(Editor)).call(this, props));
 
     _this.state = {
-      value: props.value,
+      value: cleanString(props.value),
       output: {},
       duration: 0
     };
@@ -43025,7 +43051,7 @@ var Editor = function (_React$Component) {
               theme: 'monokai',
               name: Date.now(),
               onChange: this.onChange.bind(this),
-              value: cleanString(value),
+              value: value,
               height: '317px',
               width: 'auto',
               editorProps: { $blockScrolling: true }
@@ -43045,11 +43071,11 @@ var Editor = function (_React$Component) {
               'div',
               { className: 'console' },
               _react2.default.createElement(
-                'div',
+                'span',
                 { className: 'output' },
                 !val && !cons ? 'Output from the example appears here' : '',
                 val ? _react2.default.createElement(
-                  'span',
+                  'pre',
                   null,
                   ' > ',
                   val,
@@ -43059,7 +43085,7 @@ var Editor = function (_React$Component) {
                 ) : '',
                 cons && cons.length > 0 ? cons.map(function (c, i) {
                   return _react2.default.createElement(
-                    'span',
+                    'pre',
                     { key: i },
                     ' ',
                     c,
@@ -43163,9 +43189,15 @@ var Container = function (_React$Component4) {
           description = _props2.description,
           docs = _props2.docs,
           source = _props2.source,
-          children = _props2.children;
+          children = _props2.children,
+          options = _props2.options;
+
+      var _ref = options || {},
+          _ref$width = _ref.width,
+          width = _ref$width === undefined ? "500px" : _ref$width;
 
       // Set the title of the window
+
 
       document.title = title;
 
@@ -43214,7 +43246,7 @@ var Container = function (_React$Component4) {
           ),
           _react2.default.createElement(
             'div',
-            { style: { width: '550px', margin: '0 auto' } },
+            { style: { width: width, margin: '0 auto' } },
             children
           )
         )
@@ -43230,6 +43262,7 @@ Container.propTypes = {
   description: _propTypes2.default.string,
   source: _propTypes2.default.string,
   docs: _propTypes2.default.string,
+  options: _propTypes2.default.object,
   children: _propTypes2.default.element.isRequired
 };
 
@@ -43435,7 +43468,7 @@ exports = module.exports = __webpack_require__(66)(undefined);
 
 
 // module
-exports.push([module.i, "/* Overrides */\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\n.panel, .panel-body, .panel-footer, .panel-header {\n  border-radius: 0 !important;\n  padding: 0 !important;\n}\n\n.ace_editor {\n  font-size: 1em !important;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\n#root {\n  padding-bottom: 60px;\n}\n\nblockquote {\n  margin: 0;\n}\n\n\n/* Custom */\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n\n.console {\n  border-top: 1px solid #CCC;\n  font-family: monospace;\n  padding: 2px 2px 2px 8px;\n  line-height: 28px;\n  min-height: 26px;\n}\n\n.console .output {\n  color: #666;\n  width: 80%;\n  display: inline-block;\n}\n\n.time {\n  color: #666;\n  font-family: monospace;\n  line-height: 13px;\n  padding: 8px;\n  font-size: 13px;\n}\n\n.run.btn {\n  margin: 10px;\n  float: right;\n  background-color: rgb(81, 163, 81);\n  color: white;\n  border-radius: 0px;\n  padding: 0 10px;\n  line-height: 28px;\n}\n", ""]);
+exports.push([module.i, "/* Overrides */\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\n.panel, .panel-body, .panel-footer, .panel-header {\n  border-radius: 0 !important;\n  padding: 0 !important;\n}\n\n.ace_editor {\n  font-size: 1em !important;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\n#root {\n  padding-bottom: 60px;\n}\n\nblockquote {\n  margin: 0;\n}\n\n\n/* Custom */\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n\n.console {\n  border-top: 1px solid #CCC;\n  font-family: monospace;\n  padding: 2px 2px 2px 8px;\n  line-height: 28px;\n  min-height: 26px;\n}\n\n.console .output {\n  color: #666;\n  width: 80%;\n  display: inline-block;\n}\n\n.console .output > pre {\n  padding: 0;\n  white-space: pre-wrap;\n  background-color: transparent;\n}\n\n.time {\n  color: #666;\n  font-family: monospace;\n  line-height: 13px;\n  padding: 8px;\n  font-size: 13px;\n}\n\n.run.btn {\n  margin: 10px;\n  float: right;\n  background-color: rgb(81, 163, 81);\n  color: white;\n  border-radius: 0px;\n  padding: 0 10px;\n  line-height: 28px;\n}\n", ""]);
 
 // exports
 
@@ -62527,119 +62560,5 @@ dom.importCssString(exports.cssText, exports.cssClass);
 
 
 /***/ })
-/******/ ]);</script><script type="text/javascript">/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 255);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 255:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(256);
-
-
-/***/ }),
-
-/***/ 256:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-(function () {
-    window.extra = function (name) {
-        return '!' + name + '!';
-    };
-
-    window.onload = function () {
-        // clear the description
-        var words = document.querySelector('.description').textContent;
-        document.querySelector('.description').innerHTML = '';
-
-        var letters = words.split('');
-        for (var i = 0; i < letters.length; i++) {
-            setTimeout(function (c) {
-                if (c === '|') {
-                    return function () {
-                        document.querySelector('.description').innerHTML = document.querySelector('.description').innerHTML + '</br>';
-                    };
-                }
-                return function () {
-                    document.querySelector('.description').innerHTML = document.querySelector('.description').innerHTML + c;
-                };
-            }(letters[i]), 50 * i);
-        }
-
-        var buttons = document.querySelectorAll('.run');
-        [].forEach.call(buttons, function (button) {
-            button.click();
-        });
-    };
-})();
-
-/***/ })
-
-/******/ });</script></body>
+/******/ ]);</script></body>
 </html>

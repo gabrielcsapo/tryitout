@@ -23,7 +23,7 @@ class Editor extends React.Component {
     super(props);
 
     this.state = {
-      value: props.value,
+      value: cleanString(props.value),
       output: {},
       duration: 0
     }
@@ -78,7 +78,7 @@ class Editor extends React.Component {
                 theme="monokai"
                 name={ Date.now() }
                 onChange={ this.onChange.bind(this) }
-                value={ cleanString(value) }
+                value={ value }
                 height='317px'
                 width='auto'
                 editorProps={{$blockScrolling: true}}
@@ -89,13 +89,13 @@ class Editor extends React.Component {
                Run took { duration }ms
              </div>
               <div className="console">
-                  <div className="output">
+                  <span className="output">
                     { (!val && !cons) ? 'Output from the example appears here' : '' }
-                    { val ? <span> &gt; {val} <br/> </span> : '' }
+                    { val ? <pre> &gt; {val} <br/> </pre> : '' }
                     { cons && cons.length > 0 ?
-                      cons.map((c, i) => <span key={ i }> { c } <br/> </span>)
+                      cons.map((c, i) => <pre key={ i }> { c } <br/> </pre>)
                     : '' }
-                  </div>
+                  </span>
                   <button className="run btn" type='button' onClick={ this.run.bind(this) }>Run</button>
               </div>
             </div>
@@ -142,7 +142,8 @@ HTML.propTypes = {
 
 class Container extends React.Component {
   render() {
-    const { title, description, docs, source, children } = this.props;
+    const { title, description, docs, source, children, options } = this.props;
+    const { width="500px" } = options || {};
 
     // Set the title of the window
     document.title = title;
@@ -160,7 +161,7 @@ class Container extends React.Component {
         </div>
         <div>
           <h5 className="text-center description"> { cleanString(description) }</h5>
-          <div style={{ width: '550px', margin: '0 auto' }}>
+          <div style={{ width, margin: '0 auto' }}>
             { children }
           </div>
         </div>
@@ -174,6 +175,7 @@ Container.propTypes = {
     description: PropTypes.string,
     source: PropTypes.string,
     docs: PropTypes.string,
+    options: PropTypes.object,
     children: PropTypes.element.isRequired
 };
 
