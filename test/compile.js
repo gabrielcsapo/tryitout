@@ -10,24 +10,27 @@ test('compile', (t) => {
     timeout: 100000
   }, (t) => {
     const source = {
-        "title": "Hello World",
-        "description": "When you want a hello world example and just want a simple example cli",
-        "source": "https://github.com/gabrielcsapo/tryitout",
-        "body": [{
-          "type": "text",
-          "value": "To write a simple hello world function simply do the following"
-        },{
-          "type": "code",
-          "title": "Hello World Example",
-          "value": "function Hello() {\n    return 'hello world'\n}"
-        }],
-        "output": path.resolve(__dirname, 'tmp'),
-        "path": path.resolve(__dirname)
+      "title": "Hello World",
+      "description": "When you want a hello world example and just want a simple example cli",
+      "source": "https://github.com/gabrielcsapo/tryitout",
+      "body": [{
+        "type": "text",
+        "value": "To write a simple hello world function simply do the following"
+      }, {
+        "type": "code",
+        "title": "Hello World Example",
+        "value": "function Hello() {\n    return 'hello world'\n}"
+      }],
+      "output": path.resolve(__dirname, 'tmp'),
+      "path": path.resolve(__dirname)
     };
     const output = path.resolve(__dirname, 'tmp');
 
-    compile({ source, output }, (error) => {
-      if(error) return t.fail(error);
+    compile({
+      source,
+      output
+    }, (error) => {
+      if (error) return t.fail(error);
       t.ok(!fs.existsSync(path.resolve(__dirname, 'tmp', 'build.js')));
       t.ok(!fs.existsSync(path.resolve(__dirname, 'tmp', 'vendor.js')));
       t.ok(fs.existsSync(path.resolve(__dirname, 'tmp', 'index.html')));

@@ -1,4 +1,4 @@
 node_modules
-docs/build.js
 coverage
 test/tmp
+docs/storybook

@@ -46,6 +46,8 @@ const source = Object.assign(require(sourcePath), {
 const output = path.resolve(process.cwd(), source.output || program.output);
 
 if(!program.watch) {
+  process.env.NODE_ENV = 'development';
+  
   const spinner = ora('Generating tryitout document').start();
   compile({ source, output }, (error) => {
     if(error) return spinner.fail(error); // eslint-disable-line

@@ -1,3 +1,10 @@
+# 0.2.0 (09/27/2017)
+
+- updates react@16.0.0 and reduces example bundle from 2.3 MB to 1.8 MB
+- removes dependencies and abstracts classes
+- adds storybook to test UI components
+- removes source and docs attribute and replaces them with nav which is an object that will render the top nav
+
 # 0.1.4 (09/19/2017)
 
 - adds an options object that contains options to augment the page

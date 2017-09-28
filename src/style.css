@@ -31,6 +31,9 @@ blockquote {
   margin: 0;
 }
 
+.navbar.navbar-center > .container {
+  width: 100% !important;
+}
 
 /* Custom */
 
