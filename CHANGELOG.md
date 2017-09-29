@@ -1,3 +1,7 @@
+# 0.2.1 (09/28/2017)
+
+- adds a default to container props if not passed
+
 # 0.2.0 (09/27/2017)
 
 - updates react@16.0.0 and reduces example bundle from 2.3 MB to 1.8 MB

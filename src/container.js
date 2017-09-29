@@ -8,7 +8,7 @@ import Text from './text';
 
 class Container extends React.Component {
   render() {
-    const { title, description, nav, options={}, body } = this.props;
+    const { title, description, nav, options, body } = this.props;
     const { width="500px" } = options;
 
     // Set the title of the window
@@ -55,6 +55,14 @@ Container.propTypes = {
     body: PropTypes.array,
     options: PropTypes.object,
     children: PropTypes.element.isRequired
+};
+
+Container.defaultProps = {
+  title: "",
+  description: "",
+  nav: {},
+  options: {},
+  body: []
 };
 
 module.exports = Container;
