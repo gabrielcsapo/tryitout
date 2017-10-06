@@ -18,16 +18,16 @@ program
 // look for the defaults
 let sourcePath = '';
 
-if(fs.existsSync(path.resolve(process.cwd(), 'tryitout.js'))) {
-  sourcePath = path.resolve(process.cwd(), 'tryitout.js');
-} else if(fs.existsSync(path.resolve(process.cwd(), 'tryitout.json'))) {
-  sourcePath = path.resolve(process.cwd(), 'tryitout.json');
-} else {
-  try {
+try {
+  if(program.source) {
     if(fs.existsSync(path.resolve(process.cwd(), program.source))) {
       sourcePath = path.resolve(process.cwd(), program.source);
     }
-  } catch(ex) {
+  } else if(fs.existsSync(path.resolve(process.cwd(), 'tryitout.js'))) {
+    sourcePath = path.resolve(process.cwd(), 'tryitout.js');
+  } else if (fs.existsSync(path.resolve(process.cwd(), 'tryitout.json'))) {
+    sourcePath = path.resolve(process.cwd(), 'tryitout.json');
+  } else {
     console.error(`` + // eslint-disable-line
     `
       please configure a valid source file using
@@ -39,8 +39,20 @@ if(fs.existsSync(path.resolve(process.cwd(), 'tryitout.js'))) {
     `);
     process.exit(1);
   }
+} catch(ex) {
+  console.error(`` + // eslint-disable-line
+  `
+    please configure a valid source file using
+
+      tryitout --source <filename>
+
+    or place a tryitout.json or tryitout.js file
+    in your current working directory
+  `);
+  process.exit(1);
 }
 
+const template = program.template;
 const source = Object.assign(require(sourcePath), {
     path: sourcePath
 });
@@ -48,12 +60,12 @@ const output = path.resolve(process.cwd(), source.output || program.output);
 
 if(!program.watch) {
   const spinner = ora('Generating tryitout document').start();
-  compile({ source, output }, (error) => {
+  compile({ source, output, template }, (error) => {
     if(error) return spinner.fail(error); // eslint-disable-line
     spinner.succeed(`Generated tryitout document: ${path.resolve(output, 'index.html')}`);
   });
 } else {
   process.env.NODE_ENV = 'development';
 
-  watch({ originalSource: source, output });
+  watch({ originalSource: source, output, template });
 }

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import path from 'path';
 import { HTML, Text, Editor } from '../src/index';
 import Code from '../src/templates/code.js';
 import Product from '../src/templates/product.js';

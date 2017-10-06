@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
@@ -47,7 +47,7 @@
     "react-ace": "^5.2.1",
     "react-dom": "^16.0.0",
     "react-router": "^4.1.2",
-    "style-loader": "^0.18.1",
+    "style-loader": "^0.19.0",
     "webpack": "^3.6.0"
   },
   "devDependencies": {

@@ -1,3 +1,9 @@
+# 0.2.3 (10/05/2017)
+
+- passes template correctly to compile
+- fixes conditionals to allow command line arguments to take precedence over static options
+- updates style-loader
+
 # 0.2.2 (10/05/2017)
 
 - adds templates (code and product)
