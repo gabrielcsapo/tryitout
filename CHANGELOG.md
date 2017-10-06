@@ -1,3 +1,8 @@
+# 0.2.2 (10/05/2017)
+
+- adds templates (code and product)
+- fixed a bug that renders the full react library on build
+
 # 0.2.1 (09/28/2017)
 
 - adds a default to container props if not passed

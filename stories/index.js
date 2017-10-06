@@ -2,7 +2,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { Container, HTML, Text, Editor } from '../src/index';
+import path from 'path';
+import { HTML, Text, Editor } from '../src/index';
+import Code from '../src/templates/code.js';
+import Product from '../src/templates/product.js';
 
 storiesOf('Text', module)
   .add('basic text', () => <Text value="Hello I am text!"></Text>)
@@ -26,8 +29,8 @@ storiesOf('Editor', module)
     return <Editor {...options}></Editor>
   });
 
-storiesOf('Container', module)
-  .add('Example container', () => {
+storiesOf('Code Template', module)
+  .add('Example Code Template', () => {
     var options = {
         title: "tryitout",
         description: "Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉",
@@ -51,5 +54,18 @@ storiesOf('Container', module)
           `
         }]
     }
-    return <Container {...options}></Container>
+    return <Code {...options}></Code>
+  });
+
+storiesOf('Product Template', module)
+  .add('Example Product Template', () => {
+    var options = {
+        title: "Steno",
+        description: "A simple SSH shortcut menu for OSX",
+        sourceCodeLink: 'https://github.com/gabrielcsapo/steno',
+        downloadLink: 'https://github.com/gabrielcsapo/steno/releases',
+        icon: require('../test/fixtures/steno.png'),
+        demoImage: require('../test/fixtures/example.gif')
+    }
+    return <Product {...options}/>
   });

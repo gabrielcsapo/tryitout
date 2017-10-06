@@ -12,6 +12,7 @@ program
   .option('-s, --source <source>', 'The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)')
   .option('-o, --output [directory]', 'The output directory', process.cwd())
   .option('-w, --watch', 'Watch for changes and compile when changes are made')
+  .option('-t, --template <template>', 'The template to be used to generate your site', 'code')
   .parse(process.argv);
 
 // look for the defaults
@@ -46,13 +47,13 @@ const source = Object.assign(require(sourcePath), {
 const output = path.resolve(process.cwd(), source.output || program.output);
 
 if(!program.watch) {
-  process.env.NODE_ENV = 'development';
-  
   const spinner = ora('Generating tryitout document').start();
   compile({ source, output }, (error) => {
     if(error) return spinner.fail(error); // eslint-disable-line
     spinner.succeed(`Generated tryitout document: ${path.resolve(output, 'index.html')}`);
   });
 } else {
-  watch(source, output);
+  process.env.NODE_ENV = 'development';
+
+  watch({ originalSource: source, output });
 }

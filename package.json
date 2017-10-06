@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
@@ -54,6 +54,7 @@
     "@storybook/react": "^3.2.11",
     "eslint": "^4.7.2",
     "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
     "tap": "^10.7.1",
     "tape": "^4.8.0"
   }
