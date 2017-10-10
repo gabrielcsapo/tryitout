@@ -1,3 +1,7 @@
+# 0.2.4 (10/09/2017)
+
+- updates dependencies and uses babel-preset-env instead of babel-preset-es2015
+
 # 0.2.3 (10/05/2017)
 
 - passes template correctly to compile
