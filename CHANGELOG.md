@@ -1,7 +1,11 @@
+# 0.3.1 (10/11/2017)
+
+- fixes styling for landing page
+
 # 0.3.0 (10/11/2017)
 
 - change the interface for the product template to have a links option instead of static link attributes
-- adds update-notifier to show new updates 
+- adds update-notifier to show new updates
 - adds landing page template
 - fixes storybook demo of code template
 - adds more PropTypes to templates

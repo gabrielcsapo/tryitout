@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
