@@ -1,5 +1,2 @@
-- [ ] add storybook
-  - [ ] abstract UI components from index.js
-- [ ] add option to add to navigation
 - [ ] add more tests for compile and watch
 - [ ] add jsdoc

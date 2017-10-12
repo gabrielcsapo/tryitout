@@ -21877,8 +21877,7 @@ var Code = function (_React$Component) {
           nav = _props.nav,
           options = _props.options,
           body = _props.body;
-      var _options$width = options.width,
-          width = _options$width === undefined ? "500px" : _options$width;
+      var width = options.width;
 
       // Set the title of the window
 
@@ -21953,7 +21952,9 @@ Code.propTypes = {
   description: _propTypes2.default.string,
   nav: _propTypes2.default.object,
   body: _propTypes2.default.array,
-  options: _propTypes2.default.object
+  options: _propTypes2.default.shape({
+    width: _propTypes2.default.string
+  })
 };
 
 Code.defaultProps = {
@@ -21961,7 +21962,9 @@ Code.defaultProps = {
   description: "",
   nav: {},
   body: [],
-  options: {}
+  options: {
+    width: "500px"
+  }
 };
 
 if (window && window.source || {"title":"tryitout","description":"Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉","nav":{"Source":"https://github.com/gabrielcsapo/tryitout","Docs":"https://github.com/gabrielcsapo/tryitout","Storybook":"./storybook/index.html"},"body":[{"type":"text","value":"\n        > [`tryitout`](https://github.com/gabrielcsapo/tryitout) 🎩 a way to build interactive doc pages with configuration files\n      "},{"type":"text","value":"\n        Using this is so simple, just simple create a `tryitout.json` or `tryitout.js` file with the contents that adhere to the following schema:\n\n        ```json\n        {\n         \"title\": \"String\"\n         \"options\": \"Object\"\n         \"description\": \"String\"\n         \"nav\": {\n           \"{Label}\": \"{Url}\"\n         },\n         \"output\": \"Path\"\n         \"body\": \"Array\",\n         \"externals\": \"Array\"\n        }\n        ```\n\n        Then all you need to do is run `tryitout`\n\n        A common use case for doc websites is to show off functionality in a `commonjs` module.\n\n        In the example below `extra` is a function that is exposed globally in `docs/extra.js`.\n\n        It exposed to this page via the externals attribute as such:\n\n        ```js\n        \"externals\": [\n          \"./docs/extra.js\"\n        ]\n        ```\n        "},{"type":"code","title":"A simple code example","value":"\n        function Hello() {\n          return extra('hello world');\n        }\n        Hello();\n      "},{"type":"text","value":"\n        The easiest way to get started is by creating `tryitout.js` in your current working directory with the contents:\n\n        ```js\n        module.exports = {\n            title: \"Hello World\",\n            description: \"When you want a hello world example and just want a simple example cli\",\n            nav: {\n              Source: \"https://github.com/gabrielcsapo/tryitout\",\n              Docs: \"https://github.com/gabrielcsapo/tryitout/docs\"\n            }\n            body: [{\n              type: \"text\",\n              value: `\n                To write a simple hello world function simply do the following\n              `\n            },{\n              type: \"code\",\n              title: \"Hello World Example\",\n              value: `\n                function Hello() {\n                  return 'hello world'\n                }\n              `\n            }],\n            output: \"./docs\"\n        }\n        ```\n\n        Then run `tryitout --watch`, this will spawn a webserver and editing the file will show results on subsequent page loads\n      "},{"type":"html","value":"\n        <div style='text-align:center'>\n          <h3>Thanks for trying it out 😉</h3>\n          <small>Add some cool examples of what you are using this for 🚀</small>\n        </div>\n      "}],"output":"./docs","externals":["./docs/extra.js"],"path":"/Users/gabrielcsapo/Documents/tryitout/tryitout.js"}) {
@@ -22140,8 +22143,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./style.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./code.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./code.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -22159,7 +22162,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "/* Overrides */\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\n.panel, .panel-body, .panel-footer, .panel-header {\n  border-radius: 0 !important;\n  padding: 0 !important;\n}\n\n.ace_editor {\n  font-size: 1em !important;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\n#root {\n  padding-bottom: 60px;\n}\n\nblockquote {\n  margin: 0;\n}\n\n.navbar.navbar-center > .container {\n  width: 100% !important;\n}\n\n/* Custom */\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n\n.console {\n  border-top: 1px solid #CCC;\n  font-family: monospace;\n  padding: 2px 2px 2px 8px;\n  line-height: 28px;\n  min-height: 26px;\n}\n\n.console .output {\n  color: #666;\n  width: 80%;\n  display: inline-block;\n}\n\n.console .output > pre {\n  padding: 0;\n  white-space: pre-wrap;\n  background-color: transparent;\n}\n\n.time {\n  color: #666;\n  font-family: monospace;\n  line-height: 13px;\n  padding: 8px;\n  font-size: 13px;\n}\n\n.run.btn {\n  margin: 10px;\n  float: right;\n  background-color: rgb(81, 163, 81);\n  color: white;\n  border-radius: 0px;\n  padding: 0 10px;\n  line-height: 28px;\n}\n", ""]);
+exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\n.panel, .panel-body, .panel-footer, .panel-header {\n  border-radius: 0 !important;\n  padding: 0 !important;\n}\n\n.ace_editor {\n  font-size: 1em !important;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\n#root {\n  padding-bottom: 60px;\n}\n\nblockquote {\n  margin: 0;\n}\n\n.navbar.navbar-center > .container {\n  width: 100% !important;\n}\n\n/* Custom */\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n\n.console {\n  border-top: 1px solid #CCC;\n  font-family: monospace;\n  padding: 2px 2px 2px 8px;\n  line-height: 28px;\n  min-height: 26px;\n}\n\n.console .output {\n  color: #666;\n  width: 80%;\n  display: inline-block;\n}\n\n.console .output > pre {\n  padding: 0;\n  white-space: pre-wrap;\n  background-color: transparent;\n}\n\n.time {\n  color: #666;\n  font-family: monospace;\n  line-height: 13px;\n  padding: 8px;\n  font-size: 13px;\n}\n\n.run.btn {\n  margin: 10px;\n  float: right;\n  background-color: rgb(81, 163, 81);\n  color: white;\n  border-radius: 0px;\n  padding: 0 10px;\n  line-height: 28px;\n}\n", ""]);
 
 // exports
 
@@ -24796,7 +24799,11 @@ var ReactAce = function (_Component) {
 
       if (Array.isArray(commands)) {
         commands.forEach(function (command) {
-          _this2.editor.commands.addCommand(command);
+          if (typeof command.exec == 'string') {
+            _this2.editor.commands.bindKey(command.bindKey, command.exec);
+          } else {
+            _this2.editor.commands.addCommand(command);
+          }
         });
       }
 
@@ -25319,9 +25326,14 @@ var SplitComponent = function (_Component) {
           }
         }
         _this2.handleOptions(_this2.props, editor);
+
         if (Array.isArray(commands)) {
           commands.forEach(function (command) {
-            editor.commands.addCommand(command);
+            if (typeof command.exec == 'string') {
+              editor.commands.bindKey(command.bindKey, command.exec);
+            } else {
+              editor.commands.addCommand(command);
+            }
           });
         }
 

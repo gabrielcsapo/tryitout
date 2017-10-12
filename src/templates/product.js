@@ -1,5 +1,5 @@
 import 'psychic-ui/dist/psychic-min.css';
-import '../style.css';
+import './product.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,8 +8,8 @@ import { cleanString } from '../../lib/util';
 
 class Product extends React.Component {
   render() {
-    const { title, description, sourceCodeLink, downloadLink, icon, demoImage, options } = this.props;
-    const { width="90%" } = options;
+    const { title, description, links, icon, demoImage, options } = this.props;
+    const { width } = options;
 
     // Set the title of the window
     document.title = title;
@@ -22,8 +22,10 @@ class Product extends React.Component {
               <img src={ icon } width="150"/>
               <h1>{ cleanString(title) }</h1>
               <h3 style={{ "fontWeight": "300" }}>{ cleanString(description) }</h3>
-              <a className="btn" href={ sourceCodeLink } target="_blank" rel="noopener noreferrer">Source Code</a>
-              <a className="btn" href={ downloadLink } target="_blank" rel="noopener noreferrer">Download</a>
+              { links
+                ?
+                Object.keys(links).map((l, i) => <a key={i} className="btn" href={ links[l] } target="_blank" rel="noopener noreferrer"> { l }</a>)
+              : '' }
             </div>
             <div className="col-6-12">
               <img className="responsive" src={ demoImage }/>
@@ -38,20 +40,23 @@ class Product extends React.Component {
 Product.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  sourceCodeLink: PropTypes.string,
-  downloadLink: PropTypes.string,
+  links: PropTypes.object,
   icon: PropTypes.string,
   demoImage: PropTypes.string,
-  options: PropTypes.object
+  options: PropTypes.shape({
+    width: PropTypes.string
+  })
 };
 
 Product.defaultProps = {
   title: "",
   description: "",
-  sourceCodeUrl: "",
+  link: "",
   icon: "",
   demoImage: "",
-  options: {}
+  options: {
+    width: "90%"
+  }
 };
 
 if((window && window.source) || global.source) {

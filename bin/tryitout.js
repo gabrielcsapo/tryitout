@@ -3,16 +3,20 @@ const fs = require('fs');
 const path = require('path');
 const program = require('commander');
 const ora = require('ora');
+const updateNotifier = require('update-notifier');
 
 const compile = require('../lib/compile');
 const watch = require('../lib/watch');
+const pkg = require('../package.json')
+
+updateNotifier({pkg}).notify();
 
 program
-  .version(require('../package.json').version)
+  .version(pkg.version)
   .option('-s, --source <source>', 'The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)')
   .option('-o, --output [directory]', 'The output directory', process.cwd())
   .option('-w, --watch', 'Watch for changes and compile when changes are made')
-  .option('-t, --template <template>', 'The template to be used to generate your site', 'code')
+  .option('-t, --template <template>', 'The template to be used to generate your site [code, product, landing]', 'code')
   .parse(process.argv);
 
 // look for the defaults

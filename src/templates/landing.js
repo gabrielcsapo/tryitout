@@ -1,23 +1,23 @@
 import 'psychic-ui/dist/psychic-min.css';
-import './code.css';
+import './landing.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
+import { HTML } from '../';
 import { cleanString } from '../../lib/util';
 
-import { HTML, Editor, Text } from '../index';
-
-class Code extends React.Component {
+class Landing extends React.Component {
   render() {
-    const { title, description, nav, options, body } = this.props;
+    const { title, nav, body, footer, options } = this.props;
+    const { author, website } = footer;
     const { width } = options;
 
     // Set the title of the window
     document.title = title;
 
     return (
-      <div style={{ "height":"100%", "width":"100%" }}>
+      <div style={{ "height":"100%", width, "margin": "0 auto" }}>
         <div className="navbar navbar-center">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
@@ -28,52 +28,47 @@ class Code extends React.Component {
             </div>
           </div>
         </div>
-        <div>
-          <h5 className="text-center description"> { cleanString(description) }</h5>
-          <div style={{ width, margin: '0 auto' }}>
-           { body ?
-             body.map((block) => {
-               switch(block.type) {
-                 case 'code':
-                   return <Editor {...block} />
-                 case 'text':
-                   return <Text {...block} />
-                 case 'html':
-                   return <HTML {...block} />
-               }
-             })
-            : ''}
+        <div className="wrapper">
+          <div style={{ margin: '0 auto' }}>
+            <HTML value={body}/>
           </div>
+          <div className="push"></div>
         </div>
+        <footer className="footer text-center">
+          <a href={website}> { author } </a>
+        </footer>
       </div>
     );
   }
 }
 
-Code.propTypes = {
+Landing.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
-  nav: PropTypes.object,
-  body: PropTypes.array,
+  body: PropTypes.body,
+  nav: PropTypes.array,
   options: PropTypes.shape({
     width: PropTypes.string
+  }),
+  footer: PropTypes.shape({
+    author: PropTypes.string,
+    website: PropTypes.string
   })
 };
 
-Code.defaultProps = {
+Landing.defaultProps = {
   title: "",
-  description: "",
-  nav: {},
-  body: [],
+  body: "",
+  nav: [],
   options: {
-    width: "500px"
-  }
+    withd: "90%"
+  },
+  footer: {}
 };
 
 if((window && window.source) || global.source) {
   const injectedSource = (window && window.source) || global.source;
 
-  render(<Code {...injectedSource}/>, document.getElementById('root'));
+  render(<Landing {...injectedSource}/>, document.getElementById('root'));
 
   if (module.hot) {
     module.hot.accept();
@@ -82,5 +77,5 @@ if((window && window.source) || global.source) {
     });
   }
 } else {
-  module.exports = Code;
+  module.exports = Landing;
 }

@@ -40,11 +40,46 @@ test('compile', (t) => {
     const source = {
       title: "Steno",
       description: "A simple SSH shortcut menu for OSX",
-      sourceCodeLink: 'https://github.com/gabrielcsapo/steno',
-      downloadLink: 'https://github.com/gabrielcsapo/steno/releases',
+      nav: {
+        Source: 'https://github.com/gabrielcsapo/steno',
+        Download: 'https://github.com/gabrielcsapo/steno/releases',
+      },
       icon: '../../fixtures/steno.png',
       demoImage: '../../fixtures/example.gif'
     };
+    const output = path.resolve(__dirname, 'tmp', 'product');
+    compile({
+      source,
+      output,
+      template: 'product'
+    }, (error) => {
+      if (error) return t.fail(error);
+      t.ok(!fs.existsSync(path.resolve(__dirname, 'tmp', 'product', 'build.js')));
+      t.ok(fs.existsSync(path.resolve(__dirname, 'tmp', 'product', 'index.html')));
+      t.end();
+    });
+  });
+
+  t.test('should compile an example landing', { timeout: 10000 }, (t) => {
+    const source = {
+        title: 'Steno',
+        nav: {
+          Docs: 'http://gabrielcsapo.com/steno'
+        },
+        body: `
+          <div style="text-align:center;">
+            <h4 style="font-weight:100">A simple SSH shortcut menu for OSX</h4>
+            <img class="responsive" src="../../fixtures/example.gif"/>
+          </div>
+        `,
+        options: {
+          width: '50%'
+        },
+        footer: {
+          author: 'Gabriel J. Csapo',
+          website: 'http://www.gabrielcsapo.com'
+        }
+    }
     const output = path.resolve(__dirname, 'tmp', 'product');
     compile({
       source,
