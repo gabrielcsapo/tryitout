@@ -4,7 +4,7 @@ const fs = require('fs');
 const compile = require('../lib/compile');
 
 test('compile', (t) => {
-  t.plan(2);
+  t.plan(3);
 
   t.test('should compile an example code hello world', { timeout: 100000 }, (t) => {
     const source = {
