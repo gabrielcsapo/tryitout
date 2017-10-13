@@ -1,3 +1,8 @@
+# 0.3.3 (10/12/2017)
+
+- fixes dependency location
+- fixes update-notifier code 
+
 # 0.3.2 (10/12/2017)
 
 - adds babili-webpack-plugin to decrease the bundle size

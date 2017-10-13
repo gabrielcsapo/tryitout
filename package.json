@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
     "brace": "^0.10.0",
     "commander": "^2.9.0",
     "css-loader": "^0.28.4",
@@ -53,7 +54,6 @@
   },
   "devDependencies": {
     "@storybook/react": "^3.2.11",
-    "babili-webpack-plugin": "^0.1.2",
     "eslint": "^4.7.2",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "^1.1.5",

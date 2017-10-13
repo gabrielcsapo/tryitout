@@ -9,8 +9,6 @@ const compile = require('../lib/compile');
 const watch = require('../lib/watch');
 const pkg = require('../package.json')
 
-updateNotifier({pkg}).notify();
-
 program
   .version(pkg.version)
   .option('-s, --source <source>', 'The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)')
@@ -67,8 +65,12 @@ if(!program.watch) {
   compile({ source, output, template }, (error) => {
     if(error) return spinner.fail(error); // eslint-disable-line
     spinner.succeed(`Generated tryitout document: ${path.resolve(output, 'index.html')}`);
+
+    updateNotifier({pkg}).notify();
   });
 } else {
+  updateNotifier({pkg}).notify();
+  
   process.env.NODE_ENV = 'development';
 
   watch({ originalSource: source, output, template });
