@@ -1,3 +1,7 @@
+# 0.3.2 (10/12/2017)
+
+- adds babili-webpack-plugin to decrease the bundle size
+
 # 0.3.1 (10/11/2017)
 
 - fixes styling for landing page

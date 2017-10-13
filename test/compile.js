@@ -6,7 +6,7 @@ const compile = require('../lib/compile');
 test('compile', (t) => {
   t.plan(3);
 
-  t.test('should compile an example code hello world', { timeout: 100000 }, (t) => {
+  t.test('should compile an example code hello world', { timeout: 1000000 }, (t) => {
     const source = {
       "title": "Hello World",
       "description": "When you want a hello world example and just want a simple example cli",
@@ -36,7 +36,7 @@ test('compile', (t) => {
     });
   });
 
-  t.test('should compile an example product', { timeout: 10000 }, (t) => {
+  t.test('should compile an example product', { timeout: 100000 }, (t) => {
     const source = {
       title: "Steno",
       description: "A simple SSH shortcut menu for OSX",
@@ -60,7 +60,7 @@ test('compile', (t) => {
     });
   });
 
-  t.test('should compile an example landing', { timeout: 10000 }, (t) => {
+  t.test('should compile an example landing', { timeout: 100000 }, (t) => {
     const source = {
         title: 'Steno',
         nav: {
@@ -80,15 +80,15 @@ test('compile', (t) => {
           website: 'http://www.gabrielcsapo.com'
         }
     }
-    const output = path.resolve(__dirname, 'tmp', 'product');
+    const output = path.resolve(__dirname, 'tmp', 'landing');
     compile({
       source,
       output,
-      template: 'product'
+      template: 'landing'
     }, (error) => {
       if (error) return t.fail(error);
-      t.ok(!fs.existsSync(path.resolve(__dirname, 'tmp', 'product', 'build.js')));
-      t.ok(fs.existsSync(path.resolve(__dirname, 'tmp', 'product', 'index.html')));
+      t.ok(!fs.existsSync(path.resolve(__dirname, 'tmp', 'landing', 'build.js')));
+      t.ok(fs.existsSync(path.resolve(__dirname, 'tmp', 'landing', 'index.html')));
       t.end();
     });
   })
