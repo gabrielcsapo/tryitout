@@ -1,7 +1,11 @@
+# 0.3.4 (10/13/2017)
+
+- fixes styling for landing page
+
 # 0.3.3 (10/12/2017)
 
 - fixes dependency location
-- fixes update-notifier code 
+- fixes update-notifier code
 
 # 0.3.2 (10/12/2017)
 

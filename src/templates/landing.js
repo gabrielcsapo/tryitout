@@ -18,7 +18,7 @@ class Landing extends React.Component {
 
     return (
       <div style={{ "height":"100%", width, "margin": "0 auto" }}>
-        <div className="navbar navbar-center">
+        <div className="navbar">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
             <div className="nav">
@@ -34,7 +34,7 @@ class Landing extends React.Component {
           </div>
           <div className="push"></div>
         </div>
-        <footer className="footer text-center">
+        <footer className="footer text-black text-center">
           <a href={website}> { author } </a>
         </footer>
       </div>
