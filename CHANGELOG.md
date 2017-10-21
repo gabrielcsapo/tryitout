@@ -1,3 +1,8 @@
+# 0.3.5 (10/21/2017)
+
+- fixes babel-minify-webpack-plugin to not cleanup console evaluation code from editor component
+- migrates from babili-webpack-plugin to babel-minify-webpack-plugin
+
 # 0.3.4 (10/13/2017)
 
 - fixes styling for landing page
