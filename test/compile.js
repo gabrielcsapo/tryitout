@@ -40,7 +40,7 @@ test('compile', (t) => {
     const source = {
       title: "Steno",
       description: "A simple SSH shortcut menu for OSX",
-      nav: {
+      links: {
         Source: 'https://github.com/gabrielcsapo/steno',
         Download: 'https://github.com/gabrielcsapo/steno/releases',
       },
