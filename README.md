@@ -165,10 +165,12 @@ but if one wanted to generate a product page you could use:
 {
   title: "Steno",
   description: "A simple SSH shortcut menu for OSX",
-  sourceCodeLink: 'https://github.com/gabrielcsapo/steno',
-  downloadLink: 'https://github.com/gabrielcsapo/steno/releases',
   icon: './test/fixtures/steno.png',
-  demoImage: './test/fixtures/example.gif'
+  demoImage: './test/fixtures/example.gif',
+  links: {
+    Source: 'https://github.com/gabrielcsapo/steno',
+    Download: 'https://github.com/gabrielcsapo/steno/releases',
+  }
 }
 ```
 
