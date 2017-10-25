@@ -1,2 +1,0 @@
-- [ ] add more tests for compile and watch
-- [ ] add jsdoc

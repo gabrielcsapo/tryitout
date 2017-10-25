@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react';
 
-import 'psychic-ui/dist/psychic-min.css';
+import 'psychic.css/dist/psychic.min.css';
 
 function loadStories() {
   require('../stories');

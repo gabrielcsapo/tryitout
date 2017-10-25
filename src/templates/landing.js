@@ -1,4 +1,4 @@
-import 'psychic-ui/dist/psychic-min.css';
+import 'psychic.css/dist/psychic.min.css';
 import './landing.css';
 
 import React from 'react';
