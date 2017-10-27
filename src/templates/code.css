@@ -29,9 +29,10 @@ blockquote {
   margin: 0;
 }
 
-.navbar.navbar-center > .container {
+.navbar.navbar-center>.container {
   width: 100% !important;
 }
+
 
 /* Custom */
 
@@ -55,7 +56,7 @@ blockquote {
   display: inline-block;
 }
 
-.console .output > pre {
+.console .output>pre {
   padding: 0;
   white-space: pre-wrap;
   background-color: transparent;

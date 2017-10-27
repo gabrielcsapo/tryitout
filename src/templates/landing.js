@@ -17,7 +17,7 @@ class Landing extends React.Component {
     document.title = title;
 
     return (
-      <div style={{ "height":"100%", width, "margin": "0 auto" }}>
+      <div id="container" style={{ width }}>
         <div className="navbar">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
@@ -28,15 +28,18 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <div className="wrapper">
+        <div id="container-content">
           <div style={{ margin: '0 auto' }}>
             <HTML value={body}/>
           </div>
-          <div className="push"></div>
         </div>
-        <footer className="footer text-black text-center">
-          <a href={website}> { author } </a>
-        </footer>
+        <div className="footer navbar navbar-center">
+          <div className="container">
+            <div className="nav">
+              <a href={website}> { author } </a>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

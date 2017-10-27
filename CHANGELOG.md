@@ -1,3 +1,7 @@
+# 0.3.7 (10/27/2017)
+
+- fixes layout of landing template, uses flexbox instead of absolute values
+
 # 0.3.6 (10/24/2017)
 
 - moves from psychic-ui to psychic.css
