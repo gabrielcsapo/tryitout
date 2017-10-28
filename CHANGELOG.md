@@ -1,3 +1,7 @@
+# 0.3.8 (10/27/2017)
+
+- removes psychic-ui from the dependencies
+
 # 0.3.7 (10/27/2017)
 
 - fixes layout of landing template, uses flexbox instead of absolute values
