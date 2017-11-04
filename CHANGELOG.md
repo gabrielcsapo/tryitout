@@ -1,4 +1,4 @@
-# 1.0.0
+# 1.0.0 (11/03/2017)
 
 - drops support for versions earlier than node@8
 - ensures the template can be defined in the source
