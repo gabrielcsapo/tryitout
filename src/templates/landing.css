@@ -23,6 +23,7 @@ html, body, #root {
   flex: 1;
 }
 
-.footer .container .nav {
-  float: none;
+.footer {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

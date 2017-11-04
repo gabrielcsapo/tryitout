@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "0.3.8",
+  "version": "1.0.0",
   "description": "🎩 a way to build interactive doc pages with configuration files",
   "main": "./bin/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "tryitout": "./bin/tryitout.js"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "dependencies": {
     "babel-core": "^6.24.1",
@@ -45,7 +45,7 @@
     "prop-types": "^15.6.0",
     "psychic.css": "0.0.1",
     "react": "^16.0.0",
-    "react-ace": "^5.4.0",
+    "react-ace": "^5.5.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.1.2",
     "style-loader": "^0.19.0",

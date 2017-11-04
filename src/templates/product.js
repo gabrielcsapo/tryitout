@@ -59,10 +59,10 @@ Product.defaultProps = {
   }
 };
 
-if((window && window.source) || global.source) {
-  const injectedSource = (window && window.source) || global.source;
+if((window && window.config) || global.config) {
+  const injectedConfig = (window && window.config) || global.config;
 
-  render(<Product {...injectedSource}/>, document.getElementById('root'));
+  render(<Product {...injectedConfig}/>, document.getElementById('root'));
 
   if (module.hot) {
     module.hot.accept();

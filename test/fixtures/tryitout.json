@@ -1,0 +1,17 @@
+{
+    "title": "Hello World",
+    "description": "When you want a hello world example and just want a simple example cli",
+    "nav": {
+      "Source": "https://github.com/gabrielcsapo/tryitout",
+      "Docs": "https://github.com/gabrielcsapo/tryitout/docs"
+    },
+    "body": [{
+      "type": "text",
+      "value": "To write a simple hello world function simply do the following"
+    },{
+      "type": "code",
+      "title": "Hello World Example",
+      "value": "function Hello() {\n    return 'hello world'\n}"
+    }],
+    "output": "./docs"
+}

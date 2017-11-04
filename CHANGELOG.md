@@ -1,3 +1,9 @@
+# 1.0.0
+
+- drops support for versions earlier than node@8
+- ensures the template can be defined in the source
+- adds better documentation
+
 # 0.3.8 (10/27/2017)
 
 - removes psychic-ui from the dependencies

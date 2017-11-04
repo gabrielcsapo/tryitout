@@ -1,3 +1,5 @@
+import 'psychic.css/dist/psychic.min.css';
+
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -9,11 +11,23 @@ import Product from '../src/templates/product.js';
 import Landing from '../src/templates/landing.js';
 
 storiesOf('Text', module)
-  .add('basic text', () => <Text value="Hello I am text!"></Text>)
-  .add('markdown text', () => <Text value="> *Hello* I am text!"></Text>);
+  .add('basic text', () => {
+    return <div style={{ padding: "30px" }}>
+      <Text value="Hello I am text!"></Text>
+    </div>
+  })
+  .add('markdown text', () => {
+    return <div style={{ padding: "30px" }}>
+      <Text value="> *Hello* I am text!"></Text>
+    </div>
+  });
 
 storiesOf('HTML', module)
-  .add('basic html', () => <HTML value="<blockquote><b>Hello</b></blockquote>"></HTML>);
+  .add('basic html', () => {
+    return <div style={{ padding: "30px" }}>
+      <HTML value="<blockquote><b>Hello</b></blockquote>"></HTML>
+    </div>
+  });
 
 storiesOf('Editor', module)
   .add('hello world javascript', () => {
@@ -31,11 +45,15 @@ storiesOf('Editor', module)
         hello();
       `
     }
-    return <Editor {...options}></Editor>
+    return <div style={{ padding: "30px" }}>
+      <Editor {...options}></Editor>
+    </div>
   });
 
 storiesOf('Code Template', module)
   .add('Example Code Template', () => {
+    global.extra = (str) => `!${str}!`;
+
     var options = {
         title: "tryitout",
         description: "Building a library should be the main priority. | Once you do that, it should be about sharing it with the world. 🌎 🎉",
@@ -71,8 +89,8 @@ storiesOf('Product Template', module)
           Source: 'https://github.com/gabrielcsapo/steno',
           Download: 'https://github.com/gabrielcsapo/steno/releases',
         },
-        icon: require('../test/fixtures/steno.png'),
-        demoImage: require('../test/fixtures/example.gif')
+        icon: require('../docs/assets/steno.png'),
+        demoImage: require('../docs/assets/example.gif')
     }
     return <Product {...options}/>
   });
@@ -87,16 +105,15 @@ storiesOf('Landing Template', module)
         body: `
           <div style="text-align:center;">
             <h4 style="font-weight:100">A simple SSH shortcut menu for OSX</h4>
-            <img class="responsive" src="${require('../test/fixtures/example.gif')}"/>
+            <img class="responsive" src="${require('../docs/assets/example.gif')}"/>
           </div>
         `,
         options: {
           width: '50%'
         },
-        footer: {
-          author: 'Gabriel J. Csapo',
-          website: 'http://www.gabrielcsapo.com'
-        }
+        footer: `
+          <div class="text-black" style="font-weight: 100;">Made with ☕️ by <a href="http://www.gabrielcsapo.com">@gabrielcsapo</a></div>
+        `
     };
     return <Landing {...options}/>
   });

@@ -7,7 +7,7 @@ class HTML extends React.Component {
     const { value } = this.props;
 
     return (
-      <div dangerouslySetInnerHTML={{ __html: cleanString(value) }}></div>
+      <div dangerouslySetInnerHTML={{ __html: cleanString(value.toString()) }}></div>
     )
   }
 }

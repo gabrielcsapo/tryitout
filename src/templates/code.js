@@ -70,10 +70,10 @@ Code.defaultProps = {
   }
 };
 
-if((window && window.source) || global.source) {
-  const injectedSource = (window && window.source) || global.source;
+if((window && window.config) || global.config) {
+  const injectedConfig = (window && window.config) || global.config;
 
-  render(<Code {...injectedSource}/>, document.getElementById('root'));
+  render(<Code {...injectedConfig}/>, document.getElementById('root'));
 
   if (module.hot) {
     module.hot.accept();

@@ -10,7 +10,6 @@ import { cleanString } from '../../lib/util';
 class Landing extends React.Component {
   render() {
     const { title, nav, body, footer, options } = this.props;
-    const { author, website } = footer;
     const { width } = options;
 
     // Set the title of the window
@@ -33,12 +32,8 @@ class Landing extends React.Component {
             <HTML value={body}/>
           </div>
         </div>
-        <div className="footer navbar navbar-center">
-          <div className="container">
-            <div className="nav">
-              <a href={website}> { author } </a>
-            </div>
-          </div>
+        <div className="footer">
+          <HTML value={footer}/>
         </div>
       </div>
     );
@@ -52,10 +47,7 @@ Landing.propTypes = {
   options: PropTypes.shape({
     width: PropTypes.string
   }),
-  footer: PropTypes.shape({
-    author: PropTypes.string,
-    website: PropTypes.string
-  })
+  footer: PropTypes.string
 };
 
 Landing.defaultProps = {
@@ -63,15 +55,15 @@ Landing.defaultProps = {
   body: "",
   nav: [],
   options: {
-    withd: "90%"
+    width: "90%"
   },
-  footer: {}
+  footer: ""
 };
 
-if((window && window.source) || global.source) {
-  const injectedSource = (window && window.source) || global.source;
+if((window && window.config) || global.config) {
+  const injectedConfig = (window && window.config) || global.config;
 
-  render(<Landing {...injectedSource}/>, document.getElementById('root'));
+  render(<Landing {...injectedConfig}/>, document.getElementById('root'));
 
   if (module.hot) {
     module.hot.accept();
