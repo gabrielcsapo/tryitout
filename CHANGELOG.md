@@ -1,3 +1,9 @@
+# 1.0.2 (11/03/2017)
+
+- fixes bug with not loading config files correctly
+- fixes bug in editor component that doesn't turn values into strings before rendering
+- ensures that promise functions that call log update the UI
+
 # 1.0.1 (11/03/2017)
 
 - adds `console.html` which will render whatever it is passed as html in the editor output

@@ -31,11 +31,17 @@ class Editor extends React.Component {
           type: 'text',
           value: Array.prototype.join.call(arguments, ' ')
         });
+        self.setState({
+          output: c
+        });
       };
       c.html = function(html) {
         c.cons.push({
           type: 'html',
           value: html
+        });
+        self.setState({
+          output: c
         });
       };
       const start = Date.now();
@@ -90,14 +96,14 @@ class Editor extends React.Component {
               <div className="console">
                   <span className="output">
                     { (!val && !cons) ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>Output from the example appears here</pre></div> : '' }
-                    { val ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>{val}</pre></div> : '' }
+                    { val ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>{val.toString()}</pre></div> : '' }
                     { cons && cons.length > 0 ?
                       cons.map((c, i) => {
                         const { type, value } = c;
                         if(type == 'html') {
-                          return <pre key={ i } style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '2px', position: 'relative' }}> <HTML value={value}/> </pre>
+                          return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}> <HTML value={value}/> </pre>
                         }
-                        return <pre key={ i } style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '2px', position: 'relative' }}>{ value }</pre>
+                        return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}>{ value }</pre>
                       })
                     : '' }
                   </span>

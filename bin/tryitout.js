@@ -23,9 +23,9 @@ program
 
   try {
     config = await parse({
-      source: program.source || false,
+      source: program.source,
       template: program.template,
-      output: program.output || false
+      output: program.output
     });
   } catch (ex) {
     console.error(`` + // eslint-disable-line
@@ -45,7 +45,7 @@ program
   try {
     if (program.watch) {
       watch({
-        config,
+        originalConfig: config,
         output: config.output,
         template: config.template
       });
