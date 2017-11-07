@@ -43,20 +43,20 @@ blockquote {
 }
 
 .console {
+  position: relative;
   border-top: 1px solid #CCC;
   font-family: monospace;
-  padding: 2px 2px 2px 8px;
   line-height: 28px;
-  min-height: 26px;
+  min-height: 40px;
 }
 
 .console .output {
   color: #666;
-  width: 80%;
+  width: 100%;
   display: inline-block;
 }
 
-.console .output>pre {
+.console .output > pre {
   padding: 0;
   white-space: pre-wrap;
   background-color: transparent;
@@ -71,8 +71,10 @@ blockquote {
 }
 
 .run.btn {
-  margin: 10px;
-  float: right;
+  margin: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: rgb(81, 163, 81);
   color: white;
   border-radius: 0px;

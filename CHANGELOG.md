@@ -1,3 +1,8 @@
+# 1.0.1 (11/03/2017)
+
+- adds `console.html` which will render whatever it is passed as html in the editor output
+- restyles code output to be positioned absolutely
+
 # 1.0.0 (11/03/2017)
 
 - drops support for versions earlier than node@8

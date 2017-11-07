@@ -6,6 +6,8 @@ import { cleanString } from '../lib/util';
 import 'brace/mode/javascript';
 import 'brace/theme/monokai';
 
+import HTML from './html';
+
 class Editor extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,16 @@ class Editor extends React.Component {
         cons: []
       };
       c.log = function() {
-          c.cons.push(Array.prototype.join.call(arguments, ' '));
+        c.cons.push({
+          type: 'text',
+          value: Array.prototype.join.call(arguments, ' ')
+        });
+      };
+      c.html = function(html) {
+        c.cons.push({
+          type: 'html',
+          value: html
+        });
       };
       const start = Date.now();
       try {
@@ -78,10 +89,16 @@ class Editor extends React.Component {
              </div>
               <div className="console">
                   <span className="output">
-                    { (!val && !cons) ? 'Output from the example appears here' : '' }
-                    { val ? <pre> &gt; {val} <br/> </pre> : '' }
+                    { (!val && !cons) ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>Output from the example appears here</pre></div> : '' }
+                    { val ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>{val}</pre></div> : '' }
                     { cons && cons.length > 0 ?
-                      cons.map((c, i) => <pre key={ i }> { c } <br/> </pre>)
+                      cons.map((c, i) => {
+                        const { type, value } = c;
+                        if(type == 'html') {
+                          return <pre key={ i } style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '2px', position: 'relative' }}> <HTML value={value}/> </pre>
+                        }
+                        return <pre key={ i } style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '2px', position: 'relative' }}>{ value }</pre>
+                      })
                     : '' }
                   </span>
                   <button className="run btn" type='button' onClick={ this.run.bind(this) }>Run</button>
