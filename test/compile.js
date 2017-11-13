@@ -21,11 +21,14 @@ test('compile', (t) => {
         title: "A simple code example",
         value: `
           function Hello() {
-            return extra('hello world');
+          \treturn extra('hello world');
           }
           Hello();
         `
       }],
+      footer: `
+        <div class="text-black">Made with ☕️ by <a href="http://www.gabrielcsapo.com">@gabrielcsapo</a></div>
+      `,
       externals: [
         "./docs/assets/extra.js"
       ],
@@ -55,7 +58,10 @@ test('compile', (t) => {
         Download: 'https://github.com/gabrielcsapo/steno/releases',
       },
       icon: '../assets/steno.png',
-      demoImage: '../assets/example.gif'
+      demoImage: '../assets/example.gif',
+      footer: `
+        <div class="text-black">Made with ☕️ by <a href="http://www.gabrielcsapo.com">@gabrielcsapo</a></div>
+      `,
     };
     const output = path.resolve(__dirname, '..', 'docs', 'product');
     compile({

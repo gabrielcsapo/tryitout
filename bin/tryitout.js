@@ -23,7 +23,7 @@ program
 
   try {
     config = await parse({
-      source: program.source,
+      sourcePath: program.source,
       template: program.template,
       output: program.output
     });

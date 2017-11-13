@@ -1,3 +1,11 @@
+# 1.1.0 (11/12/2017)
+
+- fixes path being passed to the parser from CLI from being named source to sourcePath which is the proper attribute
+- fixes watch to actually reload the page
+- fixes overrides from files to be correctly parsed.
+- show loading screen when running watch
+- adds footer options for product and code templates
+
 # 1.0.2 (11/03/2017)
 
 - fixes bug with not loading config files correctly

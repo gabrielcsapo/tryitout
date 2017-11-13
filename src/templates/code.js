@@ -10,14 +10,14 @@ import { HTML, Editor, Text } from '../index';
 
 class Code extends React.Component {
   render() {
-    const { title, description, nav, options, body } = this.props;
+    const { title, description, nav, body, footer, options } = this.props;
     const { width } = options;
 
     // Set the title of the window
     document.title = title;
 
     return (
-      <div style={{ "height":"100%", "width":"100%" }}>
+      <div style={{ "height":"100%", "width":"100%" }} id="container">
         <div className="navbar navbar-center">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
@@ -28,7 +28,7 @@ class Code extends React.Component {
             </div>
           </div>
         </div>
-        <div>
+        <div id="container-content">
           <h5 className="text-center description"> { cleanString(description) }</h5>
           <div style={{ width, margin: '0 auto' }}>
            { body ?
@@ -45,6 +45,9 @@ class Code extends React.Component {
             : ''}
           </div>
         </div>
+        <div className="footer">
+          <HTML value={footer}/>
+        </div>
       </div>
     );
   }
@@ -55,6 +58,7 @@ Code.propTypes = {
   description: PropTypes.string,
   nav: PropTypes.object,
   body: PropTypes.array,
+  footer: PropTypes.string,
   options: PropTypes.shape({
     width: PropTypes.string
   })
@@ -65,6 +69,7 @@ Code.defaultProps = {
   description: "",
   nav: {},
   body: [],
+  footer: "",
   options: {
     width: "500px"
   }
@@ -75,11 +80,22 @@ if((window && window.config) || global.config) {
 
   render(<Code {...injectedConfig}/>, document.getElementById('root'));
 
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => {
-      location.reload();
-    });
+  if (injectedConfig.dev) {
+    const hash = injectedConfig.hash;
+
+    setInterval(function() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            const response = JSON.parse(xhttp.responseText);
+            if(response.hash !== hash) {
+              location.reload();
+            }
+          }
+      };
+      xhttp.open("GET", "/update", true);
+      xhttp.send();
+    }, 5000)
   }
 } else {
   module.exports = Code;

@@ -21,10 +21,6 @@ code {
   padding: 0;
 }
 
-#root {
-  padding-bottom: 60px;
-}
-
 blockquote {
   margin: 0;
 }
@@ -35,6 +31,23 @@ blockquote {
 
 
 /* Custom */
+#container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#container-content {
+  position: relative;
+  flex: 1;
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 .description {
   text-align: center;

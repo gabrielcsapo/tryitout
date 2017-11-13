@@ -65,11 +65,22 @@ if((window && window.config) || global.config) {
 
   render(<Landing {...injectedConfig}/>, document.getElementById('root'));
 
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => {
-      location.reload();
-    });
+  if (injectedConfig.dev) {
+    const hash = injectedConfig.hash;
+
+    setInterval(function() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            const response = JSON.parse(xhttp.responseText);
+            if(response.hash !== hash) {
+              location.reload();
+            }
+          }
+      };
+      xhttp.open("GET", "/update", true);
+      xhttp.send();
+    }, 5000)
   }
 } else {
   module.exports = Landing;

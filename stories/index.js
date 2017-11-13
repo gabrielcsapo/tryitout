@@ -105,7 +105,10 @@ storiesOf('Code Template', module)
             }
             Hello();
           `
-        }]
+        }],
+        footer: `
+          <div class="text-black">Made with ☕️ by <a href="http://www.gabrielcsapo.com">@gabrielcsapo</a></div>
+        `,
     }
     return <Code {...options}></Code>
   });
@@ -120,7 +123,10 @@ storiesOf('Product Template', module)
           Download: 'https://github.com/gabrielcsapo/steno/releases',
         },
         icon: require('../docs/assets/steno.png'),
-        demoImage: require('../docs/assets/example.gif')
+        demoImage: require('../docs/assets/example.gif'),
+        footer: `
+          <div class="text-black">Made with ☕️ by <a href="http://www.gabrielcsapo.com">@gabrielcsapo</a></div>
+        `,
     }
     return <Product {...options}/>
   });
