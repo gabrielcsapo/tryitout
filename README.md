@@ -24,7 +24,7 @@ npm install tryitout --save-dev
 
 ## Usage
 
-> for more usage details please check [here](https://www.gabrielcsapo.com/tryitout/``)
+> for more usage details please check [here](https://www.gabrielcsapo.com/tryitout)
 
 ```
 Usage: tryitout [options]
