@@ -21,8 +21,13 @@ html, body {
   flex: none;
 }
 
-.footer {
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+blockquote {
+  margin-left: 0;
+}
+
+pre.code {
+  background-color: #272822;
+}
+pre.code > * {
+  color: white;
 }

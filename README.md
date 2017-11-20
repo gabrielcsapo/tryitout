@@ -16,6 +16,17 @@
 
 <!-- /TOC -->
 
+## Check it out
+
+> this is cool huh
+
+```javascript
+function hello() {
+
+}
+hello();
+```
+
 ## Installation
 
 ```

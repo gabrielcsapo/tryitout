@@ -1,3 +1,9 @@
+# 1.2.0 (11/19/2017)
+
+- adds a readme template!
+- refines test suite
+- cleans up storybook
+
 # 1.1.1 (11/13/2017)
 
 - uses preact instead of react to reduce bundle size, about 8% savings

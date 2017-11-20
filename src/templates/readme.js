@@ -1,35 +1,49 @@
 import 'psychic.css/dist/psychic.min.css';
-import './landing.css';
+import './readme.css';
+import './code.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
-import { HTML } from '../';
+import Markdown from 'react-markdown';
 import { cleanString } from '../../lib/util';
 
-class Landing extends React.Component {
+import HTML from '../html';
+import Editor from '../editor';
+
+class Readme extends React.Component {
   render() {
-    const { title, nav, body, footer, options } = this.props;
+    const { title, nav, readme, footer, options } = this.props;
     const { width } = options;
 
     // Set the title of the window
     document.title = title;
 
     return (
-      <div id="container" style={{ width, textAlign: 'center' }}>
-        <div className="navbar">
+      <div id="container">
+        <div className="navbar navbar-center">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>
             <div className="nav">
               { Object.keys(nav).map((k, i) => {
                 return <a key={i} href={ nav[k] } target="_blank" rel="noopener noreferrer"> { k } </a>
-              })}
+              }, [])}
             </div>
           </div>
         </div>
         <div id="container-content">
-          <div style={{ margin: '0 auto' }}>
-            <HTML value={body}/>
+          <div style={{ width, margin: '0 auto' }}>
+            <Markdown source={readme} renderers={{
+              'code': function(prop) {
+                if(prop.language === 'javascript') {
+                    return <Editor value={prop.value}/>
+                }
+                return <pre className="code">
+                  <code> { prop.value } </code>
+                </pre>
+              }
+            }}
+            />
           </div>
         </div>
         <div className="footer">
@@ -40,30 +54,30 @@ class Landing extends React.Component {
   }
 }
 
-Landing.propTypes = {
+Readme.propTypes = {
   title: PropTypes.string,
-  body: PropTypes.body,
-  nav: PropTypes.array,
+  nav: PropTypes.object,
+  readme: PropTypes.string,
+  footer: PropTypes.string,
   options: PropTypes.shape({
     width: PropTypes.string
-  }),
-  footer: PropTypes.string
+  })
 };
 
-Landing.defaultProps = {
+Readme.defaultProps = {
   title: "",
-  body: "",
-  nav: [],
+  nav: {},
+  readme: "",
+  footer: "",
   options: {
     width: "90%"
-  },
-  footer: ""
+  }
 };
 
 if((window && window.config) || global.config) {
   const injectedConfig = (window && window.config) || global.config;
 
-  render(<Landing {...injectedConfig}/>, document.getElementById('root'));
+  render(<Readme {...injectedConfig}/>, document.getElementById('root'));
 
   if (injectedConfig.dev) {
     const hash = injectedConfig.hash;
@@ -83,5 +97,5 @@ if((window && window.config) || global.config) {
     }, 5000)
   }
 } else {
-  module.exports = Landing;
+  module.exports = Readme;
 }

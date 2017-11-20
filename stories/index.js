@@ -4,11 +4,14 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
+import dedent from 'dedent';
+
 import { HTML, Text, Editor } from '../src/index';
 
 import Code from '../src/templates/code.js';
 import Product from '../src/templates/product.js';
 import Landing from '../src/templates/landing.js';
+import Readme from '../src/templates/readme.js';
 
 storiesOf('Text', module)
   .add('basic text', () => {
@@ -80,8 +83,8 @@ storiesOf('Editor', module)
     </div>
   });
 
-storiesOf('Code Template', module)
-  .add('Example Code Template', () => {
+storiesOf('Templates', module)
+  .add('Code', () => {
     global.extra = (str) => `!${str}!`;
 
     var options = {
@@ -111,10 +114,8 @@ storiesOf('Code Template', module)
         `,
     }
     return <Code {...options}></Code>
-  });
-
-storiesOf('Product Template', module)
-  .add('Example Product Template', () => {
+  })
+  .add('Product', () => {
     var options = {
         title: "Steno",
         description: "A simple SSH shortcut menu for OSX",
@@ -129,10 +130,8 @@ storiesOf('Product Template', module)
         `,
     }
     return <Product {...options}/>
-  });
-
-storiesOf('Landing Template', module)
-  .add('Example Landing Template', () => {
+  })
+  .add('Landing', () => {
     const options = {
         title: 'Steno',
         nav: {
@@ -152,4 +151,35 @@ storiesOf('Landing Template', module)
         `
     };
     return <Landing {...options}/>
-  });
+  })
+  .add('README', () => {
+    const options = {
+      title: 'testitout',
+      nav: {
+        "Source": "https://github.com/gabrielcsapo/testitout",
+        "Docs": "https://github.com/gabrielcsapo/testitout/docs"
+      },
+      readme: dedent(`
+        # testitout
+
+        > 🚀 run \`go\` and see what happens
+
+        - [Installation](#installation)
+        - [Usage](#usage)
+
+        ## Installation
+
+        \`\`\`
+        npm install testitout --save-dev
+        \`\`\`
+
+        ## Usage
+
+        \`\`\`javascript
+        const { go } = require('testitout');
+        go();
+        \`\`\`
+      `)
+    }
+    return <Readme {...options}/>
+  })

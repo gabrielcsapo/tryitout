@@ -17,7 +17,7 @@ class Code extends React.Component {
     document.title = title;
 
     return (
-      <div style={{ "height":"100%", "width":"100%" }} id="container">
+      <div id="container">
         <div className="navbar navbar-center">
           <div className="container">
             <div className="navbar-title"><span className="text-black">{ cleanString(title) }</span></div>

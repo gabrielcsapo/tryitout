@@ -11,7 +11,6 @@ html, body, #root {
 }
 
 #container {
-  text-align: center;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -19,6 +18,7 @@ html, body, #root {
 }
 
 #container-content {
+  width: 100%;
   position: relative;
   flex: 1;
 }

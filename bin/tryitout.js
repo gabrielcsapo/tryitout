@@ -15,7 +15,7 @@ program
   .option('-s, --source <source>', 'The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)')
   .option('-o, --output [directory]', 'The output directory')
   .option('-w, --watch', 'Watch for changes and compile when changes are made')
-  .option('-t, --template <template>', 'The template to be used to generate your site [code, product, landing]')
+  .option('-t, --template <template>', 'The template to be used to generate your site [code, product, landing, readme]')
   .parse(process.argv);
 
 (async function() {
@@ -36,6 +36,8 @@ program
 
       or place a tryitout.json or tryitout.js file
       in your current working directory
+
+      failed with message: \n\n ${ex.message}
     `);
     process.exit(1);
   }

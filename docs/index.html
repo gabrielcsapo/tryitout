@@ -60,6 +60,7 @@
             <li class="active list-item" id="code"> code </li>
             <li class="list-item" id="landing"> landing </li>
             <li class="list-item" id="product"> product </li>
+            <li class="list-item" id="readme"> readme </li>
           </ul>
           <blockquote style="margin-top:20px;">
             Clicking on the above list items will show the contents
@@ -114,6 +115,7 @@
         document.querySelector('#code').onclick = function() {
           document.querySelector('#product').classList.remove('active');
           document.querySelector('#landing').classList.remove('active');
+          document.querySelector('#readme').classList.remove('active');
 
           document.querySelector('#example-link').href = './code/index.html';
           document.querySelector('#code').classList.add('active');
@@ -145,6 +147,7 @@
         document.querySelector('#landing').onclick = function() {
           document.querySelector('#product').classList.remove('active');
           document.querySelector('#code').classList.remove('active');
+          document.querySelector('#readme').classList.remove('active');
 
           document.querySelector('#example-link').href = './landing/index.html';
           document.querySelector('#landing').classList.add('active');
@@ -171,6 +174,7 @@
         document.querySelector('#product').onclick = function() {
           document.querySelector('#landing').classList.remove('active');
           document.querySelector('#code').classList.remove('active');
+          document.querySelector('#readme').classList.remove('active');
 
           document.querySelector('#example-link').href = './product/index.html';
           document.querySelector('#product').classList.add('active');
@@ -187,6 +191,28 @@
               "./path/to/assets/to/be/included"
             ],
             template: "product",
+            footer: "HTML",
+            output: "String",
+            path: "String"
+          }, null, 4);
+        }
+        document.querySelector('#readme').onclick = function() {
+          document.querySelector('#landing').classList.remove('active');
+          document.querySelector('#code').classList.remove('active');
+          document.querySelector('#product').classList.remove('active');
+
+          document.querySelector('#example-link').href = './readme/index.html';
+          document.querySelector('#readme').classList.add('active');
+
+          document.querySelector('#example').innerHTML = JSON.stringify({
+            title: "String",
+            nav: {
+              "Key": "Link"
+            },
+            externals: [
+              "./path/to/assets/to/be/included"
+            ],
+            template: "readme",
             footer: "HTML",
             output: "String",
             path: "String"

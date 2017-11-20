@@ -29,8 +29,6 @@ blockquote {
   width: 100% !important;
 }
 
-
-/* Custom */
 #container {
   display: flex;
   min-height: 100vh;
@@ -39,6 +37,7 @@ blockquote {
 }
 
 #container-content {
+  width: 100%;
   position: relative;
   flex: 1;
 }
