@@ -40,13 +40,16 @@ npm install tryitout --save-dev
 ```
 Usage: tryitout [options]
 
+Commands:
+
+  version, -v, --version    Output the version number
+  watch, -w, --watch        Watch for changes and compile when changes are made
+  help, -h, --help          Outputs this menu
 
 Options:
 
-  -V, --version              output the version number
   -s, --source <source>      The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)
   -o, --output [directory]   The output directory
-  -w, --watch                Watch for changes and compile when changes are made
   -t, --template <template>  The template to be used to generate your site [code, product, landing]
   -h, --help                 output usage information
 ```
