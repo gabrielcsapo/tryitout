@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const program = require('commander');
 const ora = require('ora');
 const updateNotifier = require('update-notifier');
 
@@ -10,13 +9,61 @@ const parse = require('../lib/parse');
 const watch = require('../lib/watch');
 const pkg = require('../package.json')
 
-program
-  .version(pkg.version)
-  .option('-s, --source <source>', 'The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)')
-  .option('-o, --output [directory]', 'The output directory')
-  .option('-w, --watch', 'Watch for changes and compile when changes are made')
-  .option('-t, --template <template>', 'The template to be used to generate your site [code, product, landing, readme]')
-  .parse(process.argv);
+let program = {};
+
+const args = process.argv.slice(2);
+
+args.forEach((a, i) => {
+  switch(a) {
+  case '-v':
+  case '--version':
+      console.log(`v${require('../package.json').version}`); // eslint-disable-line
+      process.exit(0);
+    break;
+  case 'help':
+  case '-h':
+  case '--help':
+    console.log(``+ // eslint-disable-line
+  `
+    Usage: tryitout [options]
+
+    Commands:
+
+      version, -v, --version    Output the version number
+      watch, -w, --watch        Watch for changes and compile when changes are made
+      help, -h, --help          Outputs this menu
+
+    Options:
+
+      -s, --source <source>      The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)
+      -o, --output [directory]   The output directory
+      -t, --template <template>  The template to be used to generate your site [code, product, landing]
+      -h, --help                 output usage information
+  `);
+    process.exit(0);
+    break;
+    case '-w':
+    case '--watch':
+    case 'watch':
+      program.watch = true;
+    break
+    case '-s':
+    case '--source':
+    case 'source':
+      program.source = args[i + 1];
+    break;
+    case '-o':
+    case '--output':
+    case 'output':
+      program.output = args[i + 1];
+    break;
+    case '-t':
+    case '--template':
+    case 'template':
+      program.template = args[i + 1];
+    break;
+  }
+});
 
 (async function() {
   let config = {};

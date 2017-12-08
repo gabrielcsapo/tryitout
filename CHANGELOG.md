@@ -1,3 +1,8 @@
+# 1.2.1 (12/07/2017)
+
+- removes commander, refines arg parsing
+- updates dependencies
+
 # 1.2.0 (11/19/2017)
 
 - adds a readme template!
