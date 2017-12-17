@@ -35,7 +35,7 @@ args.forEach((a, i) => {
 
     Options:
 
-      -s, --source <source>      The source json file that explain what you want to try out (the default files that it will look for will be tryitout.json or tryitout.js)
+      -s, --source <source>      The source json file that explain what you want to try out (the default files that it will look for will be [tryitout.json|tryitout.js|.tryitoutrc.json|.tryitoutrc.js])
       -o, --output [directory]   The output directory
       -t, --template <template>  The template to be used to generate your site [code, product, landing]
       -h, --help                 output usage information

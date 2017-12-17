@@ -10,7 +10,7 @@ test('compile', (t) => {
 
   t.test('should compile an example code hello world', { timeout: 100000 }, (async (t) => {
     const config = await parse({
-      sourcePath: path.resolve(__dirname, 'fixtures', 'code', 'tryitout.js')
+      sourcePath: path.resolve(__dirname, 'fixtures', 'code', '.tryitoutrc.js')
     });
 
     compile({
@@ -28,7 +28,7 @@ test('compile', (t) => {
 
   t.test('should compile an example product', { timeout: 100000 }, (async (t) => {
     const config = await parse({
-      sourcePath: path.resolve(__dirname, 'fixtures', 'product', 'tryitout.js')
+      sourcePath: path.resolve(__dirname, 'fixtures', 'product', '.tryitoutrc.js')
     });
 
     compile({
@@ -45,7 +45,7 @@ test('compile', (t) => {
 
   t.test('should compile an example landing', { timeout: 100000 }, (async (t) => {
     const config = await parse({
-      sourcePath: path.resolve(__dirname, 'fixtures', 'landing', 'tryitout.js')
+      sourcePath: path.resolve(__dirname, 'fixtures', 'landing', '.tryitoutrc.js')
     });
 
     compile({
@@ -62,7 +62,7 @@ test('compile', (t) => {
 
   t.test('should compile an example readme', { timeout: 100000 }, (async (t) => {
     const config = await parse({
-      sourcePath: path.resolve(__dirname, 'fixtures', 'readme', 'tryitout.js')
+      sourcePath: path.resolve(__dirname, 'fixtures', 'readme', '.tryitoutrc.js')
     });
 
     compile({

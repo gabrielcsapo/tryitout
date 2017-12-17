@@ -1,3 +1,8 @@
+# 1.2.2 (12/16/2017)
+
+- adds the option to parse `[.tryitoutrc.js|.tryitoutrc.json]` by default
+- updates dependencies
+
 # 1.2.1 (12/07/2017)
 
 - removes commander, refines arg parsing
