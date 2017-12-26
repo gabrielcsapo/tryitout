@@ -86,6 +86,8 @@ class Editor extends React.Component {
                 value={ value }
                 height='317px'
                 width='auto'
+                showGutter={ false }
+                scrollMargin={ [5, 5, 5, 5] }
                 editorProps={{$blockScrolling: true}}
               />
             </div>
