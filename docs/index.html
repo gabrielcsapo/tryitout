@@ -6,39 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#317EFB"/>
     <meta name="author" content="Gabriel J. Csapo">
-    <meta name="description" content="🎩 a way to build interactive doc pages with configuration files">
+    <meta name="description" content="🎩 build interactive doc pages with configuration files">
     <meta property="og:type" content="website">
     <meta property="og:title" content="tryitout">
     <meta property="og:url" content="https://gabrielcsapo.com/tryitout">
-    <meta property="og:description" content="🎩 a way to build interactive doc pages with configuration files">
+    <meta property="og:description" content="🎩 build interactive doc pages with configuration files">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@gabrielcsapo">
     <meta name="twitter:creator" content="@gabrielcsapo">
-    <link rel="stylesheet" href="./psychic.min.css">
+    <link rel="stylesheet" href="./psychic.min.css"/>
     <style>
       * {
         font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       }
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+      }
       pre {
         border: 1px solid #cfcfc4;
+        font-family: monaco;
+        background-color: black;
+        color: white;
       }
       code {
         margin: 0;
         padding: 0;
         color: rgba(255, 0, 0, 0.7);
         display: inline-block;
+        white-space: normal;
       }
       blockquote {
         margin: 0;
-        border-width:1px
+        border-width: 1px;
+      }
+      .navbar > .container > .nav > a {
+        font-weight: 600;
       }
       .list-item.active {
-        background-color: rgba(190, 190, 190, 0.26);
+        background-color: black;
+      }
+      .list-item.active a {
+        color: white;
+      }
+      .list-item a {
+        width: 100%;
+        color: black;
+        display: block;
       }
     </style>
   </head>
-  <body style="display: flex;min-height: 100vh;flex-direction: column;margin: 0 auto;">
-    <div class="navbar navbar-center">
+  <body>
+    <div class="navbar">
       <div class="container">
         <div class="navbar-title">
           <span class="text-black">tryitout</span>
@@ -49,23 +69,45 @@
         </div>
       </div>
     </div>
-    <div style="position: relative;flex: 1;">
-      <div class="text-center">
-        <h3 class="text-black">tryitout</h3>
-        <blockquote class="text-black" style="margin-bottom:20px;width: auto;display: inline-block;">🎩 a way to build interactive doc pages with configuration files</blockquote><br/>
+    <div style="position: relative;display: flex;min-height: 100vh;align-items: center;">
+      <div class="text-center" style="width: 100%;">
+        <br/>
+        <blockquote class="text-black" style="margin-bottom:20px;width: auto;display: inline-block;border-width:5px;">🎩 build interactive doc pages with configuration files</blockquote><br/>
+        <img src="./tryitout.svg" style="width:15%;"/>
+        <br/>
+        <br/>
+        <br/>
+        <pre style="width: 250px;display: inline-block;">
+          npm install tryitout -g
+        </pre>
       </div>
+    </div>
+    <div style="position: relative;display: flex;min-height: 100vh;align-items: center;">
       <div class="grid" style="width: 80%; margin: 0 auto;">
         <div class="col-lg-4-12 col-md-4-12 col-sm-12-12 col-xs-12-12">
           <ul class="list">
-            <li class="active list-item" id="code"> code </li>
-            <li class="list-item" id="landing"> landing </li>
-            <li class="list-item" id="product"> product </li>
-            <li class="list-item" id="readme"> readme </li>
+            <li class="active list-item" id="code">
+              <a href="#code">code</a>
+            </li>
+            <li class="list-item" id="landing">
+              <a href="#landing">landing</a>
+            </li>
+            <li class="list-item" id="product">
+              <a href="#product">product</a>
+            </li>
+            <li class="list-item" id="readme">
+              <a href="#readme">readme</a>
+            </li>
           </ul>
           <blockquote style="margin-top:20px;">
-            Clicking on the above list items will show the contents
-            needed to be placed inside <code>[tryitout.json|tryitout.js|.tryitoutrc.json|.tryitoutrc.js]</code>
-            in the root directory of your project. Once you have populated <code>[tryitout.json|tryitout.js|.tryitoutrc.json|.tryitoutrc.js]</code> simply run <code><i>tryitout</i></code>!
+            Clicking on the above list items will show the contents needed to be placed inside
+            <code>.tryitout</code>
+            in the root directory of your project. Once you have populated
+            <code>.tryitout</code>
+            simply run
+            <code>
+              <i>tryitout</i>
+            </code>!
           </blockquote>
           <blockquote style="margin-top:20px;">
             Clicking the example button will bring you to a sample output of what that template looks like.
@@ -73,86 +115,43 @@
         </div>
         <div class="col-lg-1-12 col-md-1-12 col-sm-12-12 col-xs-12-12" style="padding-top:10px;padding-bottom:10px;"></div>
         <div class="col-lg-7-12 col-md-7-12 col-sm-12-12 col-xs-12-12">
-          <pre id="example" style="white-space: pre-wrap;text-align:left;margin: 0;">
-
-          </pre>
+          <pre id="example" style="white-space: pre-wrap;text-align:left;margin: 0;"></pre>
           <a href="./code/index.html" target="_blank" class="btn btn-block" id="example-link" style="margin: 0;margin-top: 10px;padding: 12px 0 12px 0;">Example</a>
         </div>
       </div>
     </div>
     <div class="navbar navbar-center" style="margin-top:20px;">
       <div class="container text-center">
-        <div class="text-black">Made with ☕️ by @gabrielcsapo</div>
+        <div class="text-black">Made with ✨ by @gabrielcsapo</div>
       </div>
     </div>
     <script type="text/javascript">
-      (function() {
-        // the default is code
-        document.querySelector('#example').innerHTML = JSON.stringify({
-          title: "String",
-          description: "String",
-          nav: {
-            "Key": "Link"
-          },
-          body: [{
-            "type": "text | code | HTML",
-            "title": "String",
-            "subtitle": "String",
-            "value": "text | code | HTML"
-          }],
-          options: {
-            width: 'String'
-          },
-          externals: [
-            "./path/to/assets/to/be/included.*"
-          ],
-          template: "code",
-          footer: "HTML",
-          output: "String",
-          path: "String"
-        }, null, 4);
-
-        document.querySelector('#code').onclick = function() {
-          document.querySelector('#product').classList.remove('active');
-          document.querySelector('#landing').classList.remove('active');
-          document.querySelector('#readme').classList.remove('active');
-
-          document.querySelector('#example-link').href = './code/index.html';
-          document.querySelector('#code').classList.add('active');
-
-          document.querySelector('#example').innerHTML = JSON.stringify({
+      (function () {
+        let config = {
+          code: {
             title: "String",
             description: "String",
             nav: {
               "Key": "Link"
             },
-            body: [{
-              type: "text | code | HTML",
-              title: "String",
-              subtitle: "String",
-              value: "text | code | HTML | Markdown"
-            }],
+            body: [
+              {
+                "type": "text | code | HTML",
+                "title": "String",
+                "subtitle": "String",
+                "value": "text | code | HTML"
+              }
+            ],
             options: {
               width: 'String'
             },
-            externals: [
-              "./path/to/assets/to/be/included.*"
-            ],
+            externals: ["./path/to/assets/to/be/included.*"],
             template: "code",
             footer: "HTML",
             output: "String",
             path: "String"
-          }, null, 4);
-        }
-        document.querySelector('#landing').onclick = function() {
-          document.querySelector('#product').classList.remove('active');
-          document.querySelector('#code').classList.remove('active');
-          document.querySelector('#readme').classList.remove('active');
-
-          document.querySelector('#example-link').href = './landing/index.html';
-          document.querySelector('#landing').classList.add('active');
-
-          document.querySelector('#example').innerHTML = JSON.stringify({
+          },
+          landing: {
             title: "String",
             description: "String",
             nav: {
@@ -162,24 +161,13 @@
             options: {
               width: 'String'
             },
-            externals: [
-              "./path/to/assets/to/be/included.*"
-            ],
+            externals: ["./path/to/assets/to/be/included.*"],
             footer: "HTML",
             template: "landing",
             output: "String",
             path: "String"
-          }, null, 4);
-        }
-        document.querySelector('#product').onclick = function() {
-          document.querySelector('#landing').classList.remove('active');
-          document.querySelector('#code').classList.remove('active');
-          document.querySelector('#readme').classList.remove('active');
-
-          document.querySelector('#example-link').href = './product/index.html';
-          document.querySelector('#product').classList.add('active');
-
-          document.querySelector('#example').innerHTML = JSON.stringify({
+          },
+          product: {
             title: "String",
             description: "String",
             links: {
@@ -187,37 +175,44 @@
             },
             icon: 'Path',
             demoImage: 'Path',
-            externals: [
-              "./path/to/assets/to/be/included"
-            ],
+            externals: ["./path/to/assets/to/be/included"],
             template: "product",
             footer: "HTML",
             output: "String",
             path: "String"
-          }, null, 4);
-        }
-        document.querySelector('#readme').onclick = function() {
-          document.querySelector('#landing').classList.remove('active');
-          document.querySelector('#code').classList.remove('active');
-          document.querySelector('#product').classList.remove('active');
-
-          document.querySelector('#example-link').href = './readme/index.html';
-          document.querySelector('#readme').classList.add('active');
-
-          document.querySelector('#example').innerHTML = JSON.stringify({
+          },
+          readme: {
             title: "String",
             nav: {
               "Key": "Link"
             },
-            externals: [
-              "./path/to/assets/to/be/included"
-            ],
+            externals: ["./path/to/assets/to/be/included"],
             template: "readme",
             footer: "HTML",
             output: "String",
             path: "String"
-          }, null, 4);
+          }
         }
+
+        function updateExample() {
+          let example = location.hash.replace('#', '') || 'code';
+
+          document.querySelector('#product').classList.remove('active');
+          document.querySelector('#landing').classList.remove('active');
+          document.querySelector('#readme').classList.remove('active');
+          document.querySelector('#code').classList.remove('active');
+
+          document.querySelector('#example-link').href = `./${example}/index.html`;
+          document.querySelector('#' + example).classList.add('active');
+
+          document.querySelector('#example').innerHTML = 'module.exports = ' + JSON.stringify(config[example], null, 4);
+        }
+
+        window.onhashchange = function(e) {
+          updateExample();
+        }
+
+        updateExample();
       }());
     </script>
   </body>

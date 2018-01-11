@@ -1,4 +1,4 @@
-{
+module.exports = {
     "title": "Hello World",
     "description": "When you want a hello world example and just want a simple example cli",
     "template": "code",
@@ -15,4 +15,4 @@
       "value": "function Hello() {\n\treturn 'hello world';\n}"
     }],
     "output": "./docs"
-}
+};

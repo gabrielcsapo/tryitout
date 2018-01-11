@@ -1,0 +1,100 @@
+.panel, .panel-body, .ace_editor, .textarea, .textarea-container {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.panel, .panel-body, .panel-footer, .panel-header {
+  padding: 0 !important;
+}
+
+.ace_editor {
+  font-size: 1em !important;
+}
+
+.description {
+  text-align: center;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.console {
+  position: relative;
+  border-top: 1px solid #CCC;
+  font-family: monospace;
+  line-height: 28px;
+  min-height: 37px;
+}
+
+.console .output {
+  color: #666;
+  width: 100%;
+  display: inline-block;
+}
+
+.console .output > pre {
+  padding: 0;
+  white-space: pre-wrap;
+  background-color: transparent;
+}
+
+.time {
+  color: #666;
+  font-family: monospace;
+  line-height: 13px;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.run {
+  padding: 12px 18px;
+  margin: 10px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #cfcfc4;
+  margin: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(81, 163, 81);
+  color: white;
+  border-radius: 0px;
+  padding: 0 10px;
+  line-height: 28px;
+}
+
+.textarea-container {
+  position: relative;
+  border: 1px solid #cfcfc4;
+  overflow: hidden;
+}
+
+.textarea {
+  resize: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  color: white;
+  background: black;
+  margin: 0;
+  padding: 10px;
+  outline: none;
+  border: none;
+  min-height: 40px;
+  font: 13px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  box-shadow: none;
+  display: block;
+  overflow: hidden;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.textarea--hidden {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}

@@ -1,7 +1,15 @@
+# 2.0.0
+
+- forces config file to be named `.tryitout`
+- removes the watch option
+- removes react-ace (reduces output by 1mb)
+- uses woof to parse args and set defaults
+- updates docs page
+
 # 1.2.3 (12/26/2017)
 
 - removes gutter from code editor
-- fixes extra space in .console 
+- fixes extra space in .console
 
 # 1.2.2 (12/16/2017)
 

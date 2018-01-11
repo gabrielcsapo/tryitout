@@ -1,12 +1,10 @@
+import './editor.css';
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import AceEditor from 'react-ace';
+
+import Textarea from './textarea.js';
 import { cleanString } from '../lib/util';
-
-import 'brace/mode/javascript';
-import 'brace/theme/monokai';
-
-import HTML from './html';
 
 class Editor extends React.Component {
   constructor(props) {
@@ -66,61 +64,41 @@ class Editor extends React.Component {
     });
   }
   render() {
-    const { title, subtitle } = this.props;
     const { value, output, duration } = this.state;
     const { cons, val } = output;
 
-    return (<div style={{ paddingTop: '25px' }}>
-        <div className="text-left text-black">
-            { cleanString(title) }
-            { subtitle ? <div><small> { cleanString(subtitle) } </small></div> : '' }
+    return (<div>
+      <Textarea
+        onChange={ this.onChange.bind(this) }
+        value={ value }
+      />
+      <div style={{ overflow: 'auto', border: '1px solid #cfcfc4', padding: '0', borderBottomLeftRadius: '5px', borderBottomRightRadius: '5px' }}>
+       <div className="time">
+         Run took { duration }ms
+       </div>
+        <div className="console">
+            <span className="output">
+              { (!val && !cons) ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>Output from the example appears here</pre></div> : '' }
+              { val ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>{val.toString()}</pre></div> : '' }
+              { cons && cons.length > 0 ?
+                cons.map((c, i) => {
+                  const { type, value } = c;
+                  if(type == 'html') {
+                    return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}> <div dangerouslySetInnerHTML={{ __html: value.toString() }}/> </pre>
+                  }
+                  return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}>{ value }</pre>
+                })
+              : '' }
+            </span>
+            <button className="run" type='button' onClick={ this.run.bind(this) }>Run</button>
         </div>
-        <br/>
-        <div className="panel">
-            <div className="panel-body">
-              <AceEditor
-                mode="javascript"
-                theme="monokai"
-                name={ Date.now() }
-                onChange={ this.onChange.bind(this) }
-                value={ value }
-                height='317px'
-                width='auto'
-                showGutter={ false }
-                scrollMargin={ [5, 5, 5, 5] }
-                editorProps={{$blockScrolling: true}}
-              />
-            </div>
-            <div className="panel-footer" style={{ overflow: 'auto' }}>
-             <div className="time">
-               Run took { duration }ms
-             </div>
-              <div className="console">
-                  <span className="output">
-                    { (!val && !cons) ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>Output from the example appears here</pre></div> : '' }
-                    { val ? <div><pre style={{ whiteSpace: 'pre-wrap', margin: 0, borderRadius: 0 }}>{val.toString()}</pre></div> : '' }
-                    { cons && cons.length > 0 ?
-                      cons.map((c, i) => {
-                        const { type, value } = c;
-                        if(type == 'html') {
-                          return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}> <HTML value={value}/> </pre>
-                        }
-                        return <pre key={`${i}/${Date.now()}`} style={{ margin: '10px', border: '1px solid #f5f5f5', padding: '5px', position: 'relative' }}>{ value }</pre>
-                      })
-                    : '' }
-                  </span>
-                  <button className="run btn" type='button' onClick={ this.run.bind(this) }>Run</button>
-              </div>
-            </div>
-        </div>
+      </div>
     </div>)
   }
 }
 
 Editor.propTypes = {
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    value: PropTypes.string
+  value: PropTypes.string
 };
 
 module.exports = Editor;

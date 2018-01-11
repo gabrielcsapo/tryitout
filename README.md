@@ -1,6 +1,14 @@
-# tryitout
-
-> 🎩 a way to build interactive doc pages with configuration files
+<div align="center">
+  <h1> tryitout </h1>
+  <img src="./docs/tryitout.svg" width="100px"/>
+  </br>
+  </br>
+  <i>
+    🎩 build interactive doc pages with configuration files
+  </i>
+  </br>
+  </br>
+</div>
 
 [![Build Status](https://travis-ci.org/gabrielcsapo/tryitout.svg?branch=master)](https://travis-ci.org/gabrielcsapo/tryitout)
 [![Dependency Status](https://starbuck.gabrielcsapo.com/badge/github/gabrielcsapo/tryitout/status.svg)](https://starbuck.gabrielcsapo.com/github/gabrielcsapo/tryitout)
@@ -9,17 +17,11 @@
 [![npm](https://img.shields.io/npm/dt/tryitout.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/tryitout.svg?maxAge=2592000)]()
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Installation](#installation)
-- [Usage](#usage)
-
-<!-- /TOC -->
 
 ## Installation
 
 ```
-npm install tryitout --save-dev
+npm install tryitout -g
 ```
 
 ## Usage
@@ -32,13 +34,11 @@ Usage: tryitout [options]
 Commands:
 
   version, -v, --version    Output the version number
-  watch, -w, --watch        Watch for changes and compile when changes are made
   help, -h, --help          Outputs this menu
 
 Options:
 
-  -s, --source <source>      The source json file that explain what you want to try out (the default files that it will look for will be [tryitout.json|tryitout.js|.tryitoutrc.json|.tryitoutrc.js])
-  -o, --output [directory]   The output directory
-  -t, --template <template>  The template to be used to generate your site [code, product, landing]
-  -h, --help                 output usage information
+  -s, --source <source>      The source json file that explain what you want to try out (the default file is .tryitout)
+  -o, --output [directory]   The output directory (the default is ./docs)
+  -t, --template <template>  The template that is to be applied to the configuration [code, landing, product, readme]
 ```

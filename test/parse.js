@@ -8,16 +8,18 @@ test('parse', (t) => {
   t.plan(3);
 
   t.test('should be able to read config in working directory', (async (t) => {
-    fs.writeFileSync(path.resolve(process.cwd(), '.tryitoutrc.json'), JSON.stringify({
-      title: 'hello',
-      description: 'test',
-      nav: [],
-      body: [],
-      output: '',
-      externals: [],
-      path: '',
-      template: ''
-    }));
+    fs.writeFileSync(path.resolve(process.cwd(), '.tryitout'), `
+      module.exports = {
+        title: 'hello',
+        description: 'test',
+        nav: [],
+        body: [],
+        output: '',
+        externals: [],
+        path: '',
+        template: ''
+      };
+    `);
 
     let config = await parse();
 
@@ -30,12 +32,12 @@ test('parse', (t) => {
     t.ok(config.path);
     t.ok(config.template);
 
-    fs.unlinkSync(path.resolve(process.cwd(), '.tryitoutrc.json'));
+    fs.unlinkSync(path.resolve(process.cwd(), '.tryitout'));
     t.end();
   }));
 
   t.test('should be able to read config in from path provided directory', (async (t) => {
-    let config = await parse({ sourcePath: './test/fixtures/.tryitoutrc.json' });
+    let config = await parse({ sourcePath: './test/fixtures/.tryitout' });
 
     t.ok(config.title);
     t.ok(config.description);
@@ -49,9 +51,9 @@ test('parse', (t) => {
 
   t.test('should throw error if source does not exist', (async (t) => {
     try {
-      t.ok(!await parse({ sourcePath: './test/fixtures/doesnotexist/.tryitoutrc.js' }), 'should not be able to parse no-existent config')
+      t.ok(!await parse({ sourcePath: './test/fixtures/doesnotexist/.tryitout' }), 'should not be able to parse no-existent config')
     } catch(ex) {
-      t.equal(ex, 'invalid source');
+      t.equal(ex.message, 'invalid source');
       t.end();
     }
   }));
