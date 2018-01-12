@@ -1,3 +1,7 @@
+# 2.0.3 (01/11/2018)
+
+- adds hover color to button on product page
+
 # 2.0.2 (01/11/2018)
 
 - adds spacing on code template between code blocks
