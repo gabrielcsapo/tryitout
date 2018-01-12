@@ -1181,7 +1181,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\nblockquote {\n  margin: 0;\n}\n\n.navbar.navbar-center>.container {\n  width: 100% !important;\n}\n\n#container {\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  margin: 0 auto;\n}\n\n#container-content {\n  width: 100%;\n  position: relative;\n  flex: 1;\n}\n\n.footer {\n  text-align: center;\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n", ""]);
+exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Open Sans', Helvetica, sans-serif;\n  width: 100%;\n  height: 100%;\n}\n\ncode {\n  color: rgba(255, 0, 0, 0.67);\n  display: inline-block;\n  padding: 0;\n}\n\nblockquote {\n  margin: 0;\n}\n\n.navbar.navbar-center>.container {\n  width: 100% !important;\n}\n\n#container {\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  margin: 0 auto;\n}\n\n#container-content {\n  width: 100%;\n  position: relative;\n  flex: 1;\n}\n\n.editor {\n  margin-top: 25px;\n}\n\n.footer {\n  text-align: center;\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.description {\n  text-align: center;\n  font-weight: 100;\n  font-size: 18px;\n}\n", ""]);
 
 // exports
 
@@ -3851,7 +3851,7 @@ var Editor = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'editor' },
         _react2.default.createElement(_textarea2.default, {
           onChange: this.onChange.bind(this),
           value: value

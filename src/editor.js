@@ -67,7 +67,7 @@ class Editor extends React.Component {
     const { value, output, duration } = this.state;
     const { cons, val } = output;
 
-    return (<div>
+    return (<div className="editor">
       <Textarea
         onChange={ this.onChange.bind(this) }
         value={ value }

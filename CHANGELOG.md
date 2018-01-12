@@ -1,3 +1,7 @@
+# 2.0.2 (01/11/2018)
+
+- adds spacing on code template between code blocks
+
 # 2.0.1 (01/11/2018)
 
 - removes default template and will use the config instead of always using the default
