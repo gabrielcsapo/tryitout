@@ -22,7 +22,7 @@ const cli = woof(`
     -s, --source <source>      The source json file that explain what you want to try out (the default file is .tryitout)
     -o, --output [directory]   The output directory (the default is ./docs)
     -t, --template <template>  The template that is to be applied to the configuration [code, landing, product, readme]
-    
+
 `, {
   version: pkg.version,
   flags: {
@@ -38,8 +38,7 @@ const cli = woof(`
     },
     template: {
       type: 'string',
-      alias: 't',
-      default: 'code'
+      alias: 't'
     }
   }
 });

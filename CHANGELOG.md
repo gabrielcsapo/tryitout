@@ -1,4 +1,8 @@
-# 2.0.0
+# 2.0.1 (01/11/2018)
+
+- removes default template and will use the config instead of always using the default
+
+# 2.0.0 (01/10/2018)
 
 - forces config file to be named `.tryitout`
 - removes the watch option
