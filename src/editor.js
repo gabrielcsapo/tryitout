@@ -1,5 +1,7 @@
 import './editor.css';
+import 'krayon/dist/krayon.css';
 
+import Krayon from 'krayon';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -66,12 +68,18 @@ class Editor extends React.Component {
   render() {
     const { value, output, duration } = this.state;
     const { cons, val } = output;
+    // Since we don't want to display all html entities we just want to show spans
+    // Since we don't want to add extra characters by making these entities (which would throw off the underlying layer) we use a full-width greater than and less than. 
+    let colorized = Krayon(value.replace(/</g,"＜").replace(/>/g,"＞"));
 
     return (<div className="editor">
-      <Textarea
-        onChange={ this.onChange.bind(this) }
-        value={ value }
-      />
+      <div style={{ position: 'relative' }}>
+        <Textarea
+          onChange={ this.onChange.bind(this) }
+          value={ value }
+        />
+        <pre className="textarea-overlay" style={{ position: 'absolute', top: 0, backgroundColor: 'rgba(255, 255, 255, 0)', whiteSpace: "pre-wrap" }} dangerouslySetInnerHTML={{ __html: colorized }}/>
+      </div>
       <div style={{ overflow: 'auto', border: '1px solid #cfcfc4', padding: '0', borderBottomLeftRadius: '5px', borderBottomRightRadius: '5px' }}>
        <div className="time">
          Run took { duration }ms

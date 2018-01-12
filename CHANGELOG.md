@@ -1,3 +1,7 @@
+# 2.0.4 (01/11/2018)
+
+- colorizes editor with `krayon`
+
 # 2.0.3 (01/11/2018)
 
 - adds hover color to button on product page

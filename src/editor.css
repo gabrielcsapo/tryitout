@@ -66,7 +66,9 @@
 .textarea-container {
   position: relative;
   border: 1px solid #cfcfc4;
+  border-bottom: 0;
   overflow: hidden;
+  z-index: 100;
 }
 
 .textarea {
@@ -75,8 +77,30 @@
   -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-  color: white;
-  background: black;
+  color: transparent;
+  background: transparent;
+  color: black;
+  text-shadow: 0px 0px 0px transparent;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  padding: 10px;
+  outline: none;
+  border: none;
+  min-height: 40px;
+  font: 13px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  box-shadow: none;
+  display: block;
+  overflow: hidden;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.textarea-overlay {
+  resize: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
   margin: 0;
   padding: 10px;
   outline: none;

@@ -24,11 +24,14 @@ class Textarea extends React.Component {
 
   setFilledTextareaHeight() {
     if (this.mounted) {
-      const element = this.hidden;
+      // put an artificial timeout to make sure the dom has updated
+      setTimeout(() => {
+        const element = this.hidden;
 
-      this.setState({
-        height: element.clientHeight,
-      });
+        this.setState({
+          height: element.clientHeight,
+        });
+      }, 5)
     }
   }
 
@@ -42,8 +45,8 @@ class Textarea extends React.Component {
   }
 
   getExpandableField() {
-    const isOneLine = this.state.height <= DEFAULT_HEIGHT;
     const { height, value } = this.state;
+    const isOneLine = height <= DEFAULT_HEIGHT;
 
     return (<textarea
       className="textarea"

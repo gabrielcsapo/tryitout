@@ -15,7 +15,7 @@ module.exports = {
     title: "A simple code example",
     value: `
       function Hello() {
-      \treturn extra('hello world');
+        return extra('hello world');
       }
       Hello();
     `
