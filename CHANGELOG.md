@@ -1,3 +1,7 @@
+# 2.0.7 (01/12/2018)
+
+- adds back the title and subtitle fields to editor component
+
 # 2.0.6 (01/12/2018)
 
 - updates `krayon@0.0.3`

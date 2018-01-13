@@ -66,13 +66,19 @@ class Editor extends React.Component {
     });
   }
   render() {
+    const { title, subtitle } = this.props;
     const { value, output, duration } = this.state;
     const { cons, val } = output;
     // Since we don't want to display all html entities we just want to show spans
-    // Since we don't want to add extra characters by making these entities (which would throw off the underlying layer) we use a full-width greater than and less than. 
+    // Since we don't want to add extra characters by making these entities (which would throw off the underlying layer) we use a full-width greater than and less than.
     let colorized = Krayon(value.replace(/</g,"＜").replace(/>/g,"＞"));
 
     return (<div className="editor">
+      <div className="text-left text-black">
+          { cleanString(title) }
+          { subtitle ? <div><small> { cleanString(subtitle) } </small></div> : '' }
+      </div>
+      <br/>
       <div style={{ position: 'relative' }}>
         <Textarea
           onChange={ this.onChange.bind(this) }
@@ -106,6 +112,8 @@ class Editor extends React.Component {
 }
 
 Editor.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   value: PropTypes.string
 };
 
