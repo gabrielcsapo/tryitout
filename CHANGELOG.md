@@ -1,3 +1,7 @@
+# 2.0.5 (01/12/2018)
+
+- updates dependencies
+
 # 2.0.4 (01/11/2018)
 
 - colorizes editor with `krayon`
