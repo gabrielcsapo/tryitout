@@ -1,6 +1,10 @@
+# 2.0.6 (01/12/2018)
+
+- updates `krayon@0.0.3`
+
 # 2.0.5 (01/12/2018)
 
-- updates dependencies
+- updates `krayon@0.0.2`
 
 # 2.0.4 (01/11/2018)
 
