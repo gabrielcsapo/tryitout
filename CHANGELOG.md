@@ -1,4 +1,8 @@
-# 2.1.0 (01/12/2018)
+# 2.1.1 (11/26/2018)
+
+- fixes issue with compiler plugin logic
+
+# 2.1.0 (11/26/2018)
 
 - updates to webpack@4
 - updates to use @babel namespaced packages

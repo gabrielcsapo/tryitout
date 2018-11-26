@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "🎩 build interactive doc pages with configuration files",
   "main": "./bin/tryitout.js",
   "scripts": {
@@ -45,8 +45,8 @@
     "babel-minify-webpack-plugin": "^0.3.1",
     "css-loader": "^1.0.1",
     "dedent": "^0.7.0",
-    "html-webpack-inline-source-plugin": "0.0.10",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-inline-source-plugin": "1.0.0-beta.2",
+    "html-webpack-plugin": "^4.0.0-alpha",
     "krayon": "0.0.4",
     "marked": "^0.5.2",
     "prop-types": "^15.6.0",
