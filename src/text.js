@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Marked from 'marked';
-import { cleanString } from '../lib/util';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Marked from 'marked'
+import { cleanString } from '../lib/util'
 
 class Text extends React.Component {
-  render() {
-    const { value } = this.props;
+  render () {
+    const { value } = this.props
 
     return (
-      <div style={{ paddingTop: '50px', paddingBottom: '50px'}} dangerouslySetInnerHTML={{ __html: Marked(cleanString(value)) }}></div>
+      <div style={{ paddingTop: '50px', paddingBottom: '50px' }} dangerouslySetInnerHTML={{ __html: Marked(cleanString(value)) }} />
     )
   }
 }
 
 Text.propTypes = {
-    value: PropTypes.string
-};
+  value: PropTypes.string
+}
 
-module.exports = Text;
+module.exports = Text

@@ -1,3 +1,10 @@
+# 2.1.0 (01/12/2018)
+
+- updates to webpack@4
+- updates to use @babel namespaced packages
+- uses standard rather than plain eslint
+- fixes tests to use `.plan` instead of `.end`
+
 # 2.0.7 (01/12/2018)
 
 - adds back the title and subtitle fields to editor component

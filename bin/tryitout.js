@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const woof = require('woof');
-const updateNotifier = require('update-notifier');
+const woof = require('woof')
+const updateNotifier = require('update-notifier')
 
-const parse = require('../lib/parse');
-const compile = require('../lib/compile');
-const pkg = require('../package.json');
+const parse = require('../lib/parse')
+const compile = require('../lib/compile')
+const pkg = require('../package.json')
 
-const { Loader } = require('../lib/util');
+const { Loader } = require('../lib/util')
 
 const cli = woof(`
   Usage: tryitout [options]
@@ -41,33 +41,33 @@ const cli = woof(`
       alias: 't'
     }
   }
-});
+})
 
-if(cli.help || cli.version) process.exit(0);
+if (cli.help || cli.version) process.exit(0);
 
-(async function() {
-  let spinner = new Loader('Parsing .tryitout').start();
+(async function () {
+  let spinner = new Loader('Parsing .tryitout').start()
 
   try {
     let config = await parse({
       sourcePath: cli.source,
       template: cli.template,
       output: cli.output
-    });
+    })
 
-    spinner.update('Compiling tryitout document');
+    spinner.update('Compiling tryitout document')
 
     compile({ config }, (error) => {
-      spinner.stop();
+      spinner.stop()
 
-      if (error) return process.stdout.write(`An error occured while compiling \n ${error} \n`);
-      process.stdout.write(`Generated tryitout document: ${cli.output}/index.html \n`);
-    });
+      if (error) return process.stdout.write(`An error occured while compiling \n ${error} \n`)
+      process.stdout.write(`Generated tryitout document: ${cli.output}/index.html \n`)
+    })
 
-    updateNotifier({ pkg }).notify();
-  } catch(ex) {
-    spinner.stop();
+    updateNotifier({ pkg }).notify()
+  } catch (ex) {
+    spinner.stop()
 
-    return process.stdout.write(`An error occured while compiling \n ${ex.toString()} \n`);
+    return process.stdout.write(`An error occured while compiling \n ${ex.toString()} \n`)
   }
-}());
+}())
