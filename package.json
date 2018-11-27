@@ -32,6 +32,7 @@
       "browser",
       "node"
     ],
+    "parser": "babel-eslint",
     "ignore": [
       "docs/**",
       "test/fixtures/**"
@@ -66,6 +67,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^4.0.9",
+    "babel-eslint": "^10.0.1",
     "file-loader": "^2.0.0",
     "standard": "^12.0.1",
     "tap": "^12.1.0",
