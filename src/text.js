@@ -17,4 +17,4 @@ Text.propTypes = {
   value: PropTypes.string
 }
 
-module.exports = Text
+export default Text

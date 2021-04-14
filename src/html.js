@@ -16,4 +16,4 @@ HTML.propTypes = {
   value: PropTypes.string
 }
 
-module.exports = HTML
+export default HTML

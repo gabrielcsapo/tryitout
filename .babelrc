@@ -8,5 +8,5 @@
       "modules": "commonjs"
     }],
     "@babel/react"
-  ],
+  ]
 }

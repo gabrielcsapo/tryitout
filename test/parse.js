@@ -23,7 +23,7 @@ test('parse', (t) => {
       };
     `)
 
-    let config = await parse()
+    const config = await parse()
 
     t.ok(config.title)
     t.ok(config.description)
@@ -40,7 +40,7 @@ test('parse', (t) => {
   t.test('should be able to read config in from path provided directory', async (t) => {
     t.plan(7)
 
-    let config = await parse({ sourcePath: './test/fixtures/.tryitout' })
+    const config = await parse({ sourcePath: './test/fixtures/.tryitout' })
 
     t.ok(config.title)
     t.ok(config.description)

@@ -1,3 +1,10 @@
+# 2.2.0 (04/13/2021)
+
+- switches to the monaco editor
+- bumps dependencies
+- splits out storybook stories to their own files
+- [breaking] the code template will now produce multiple assets as a result of using the monaco editor
+
 # 2.1.1 (11/26/2018)
 
 - fixes issue with compiler plugin logic

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { render } from 'react-dom'
 import { cleanString } from '../../lib/util'
 
-import HTML from '../html'
+import HTML from '../HTML'
 
 class Product extends React.Component {
   render () {
@@ -19,15 +19,15 @@ class Product extends React.Component {
     return (
       <div id='container'>
         <div id='container-content'>
-          <div style={{ width, margin: '20px auto', 'padding': '15px' }}>
+          <div style={{ width, margin: '20px auto', padding: '15px' }}>
             <div className='grid'>
               <div className='col-lg-6-12 col-md-6-12 col-sm-12-12 col-xs-12-12 text-center'>
                 <img src={icon} width='150' />
-                <h1>{ cleanString(title) }</h1>
-                <h3 style={{ 'fontWeight': '300' }}>{ cleanString(description) }</h3>
-                { links
-                  ? Object.keys(links).map((l, i) => <a key={i} className='btn' href={links[l]} target='_blank' rel='noopener noreferrer'> { l }</a>)
-                  : '' }
+                <h1>{cleanString(title)}</h1>
+                <h3 style={{ fontWeight: '300' }}>{cleanString(description)}</h3>
+                {links
+                  ? Object.keys(links).map((l, i) => <a key={i} className='btn' href={links[l]} target='_blank' rel='noopener noreferrer'> {l}</a>)
+                  : ''}
               </div>
               <div className='col-lg-6-12 col-md-6-12 col-sm-12-12 col-xs-12-12'>
                 <img className='responsive' src={demoImage} />
@@ -76,7 +76,7 @@ if ((window && window.config) || global.config) {
     const hash = injectedConfig.hash
 
     setInterval(function () {
-      var xhttp = new XMLHttpRequest()
+      const xhttp = new XMLHttpRequest()
       xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
           const response = JSON.parse(xhttp.responseText)

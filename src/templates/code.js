@@ -6,7 +6,9 @@ import PropTypes from 'prop-types'
 import { render } from 'react-dom'
 import { cleanString } from '../../lib/util'
 
-import { HTML, Editor, Text } from '../index'
+import HTML from '../HTML'
+import Editor from '../Editor'
+import Text from '../Text'
 
 class Code extends React.Component {
   render () {
@@ -20,28 +22,28 @@ class Code extends React.Component {
       <div id='container'>
         <div className='navbar navbar-center'>
           <div className='container'>
-            <div className='navbar-title'><span className='text-black'>{ cleanString(title) }</span></div>
+            <div className='navbar-title'><span className='text-black'>{cleanString(title)}</span></div>
             <div className='nav'>
-              { Object.keys(nav).map((k, i) => {
-                return <a key={i} href={nav[k]} target='_blank' rel='noopener noreferrer'> { k } </a>
+              {Object.keys(nav).map((k, i) => {
+                return <a key={i} href={nav[k]} target='_blank' rel='noopener noreferrer'> {k} </a>
               })}
             </div>
           </div>
         </div>
         <div id='container-content'>
-          <h5 className='text-center description'> { cleanString(description) }</h5>
+          <h5 className='text-center description'> {cleanString(description)}</h5>
           <div style={{ width, margin: '0 auto' }}>
-            { body
+            {body
               ? body.map((block) => {
-                switch (block.type) {
-                  case 'code':
-                    return <Editor {...block} />
-                  case 'text':
-                    return <Text {...block} />
-                  case 'html':
-                    return <HTML {...block} />
-                }
-              })
+                  switch (block.type) {
+                    case 'code':
+                      return <Editor {...block} />
+                    case 'text':
+                      return <Text {...block} />
+                    case 'html':
+                      return <HTML {...block} />
+                  }
+                })
               : ''}
           </div>
         </div>
@@ -84,7 +86,7 @@ if ((window && window.config) || global.config) {
     const hash = injectedConfig.hash
 
     setInterval(function () {
-      var xhttp = new XMLHttpRequest()
+      const xhttp = new XMLHttpRequest()
       xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
           const response = JSON.parse(xhttp.responseText)

@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "🎩 build interactive doc pages with configuration files",
   "main": "./bin/tryitout.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "tape test/**.js",
     "coverage": "tap test/**.js --coverage --coverage-report=lcov",
     "generate-docs": "./bin/tryitout.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook --output-dir=./docs/storybook"
   },
   "repository": {
@@ -44,32 +44,39 @@
     "bin/**"
   ],
   "dependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.14",
+    "@babel/preset-react": "^7.13.12",
+    "babel-loader": "^8.2.2",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "css-loader": "^1.0.1",
+    "core-js": "^3.10.1",
+    "css-loader": "^5.2.1",
     "dedent": "^0.7.0",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
     "html-webpack-plugin": "^4.0.0-alpha",
-    "krayon": "0.0.4",
-    "marked": "^0.5.2",
+    "marked": "^2.0.3",
+    "monaco-editor-webpack-plugin": "^3.0.1",
     "prop-types": "^15.6.0",
     "psychic.css": "0.0.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-markdown": "^4.0.3",
-    "style-loader": "^0.23.1",
-    "update-notifier": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^5.0.3",
+    "react-monaco-editor": "^0.43.0",
+    "style-loader": "^2.0.0",
+    "update-notifier": "^5.1.0",
+    "url-loader": "^4.1.1",
     "webpack": "^4.26.1",
-    "woof": "^0.3.2"
+    "woof": "^0.4.0"
   },
   "devDependencies": {
-    "@storybook/react": "^4.0.9",
+    "@storybook/addon-actions": "~6.1.5",
+    "@storybook/addon-essentials": "~6.1.5",
+    "@storybook/addon-links": "~6.1.5",
+    "@storybook/addon-a11y": "^6.1.5",
+    "@storybook/react": "~6.1.5",
     "babel-eslint": "^10.0.1",
-    "file-loader": "^2.0.0",
-    "standard": "^12.0.1",
+    "file-loader": "^6.2.0",
+    "standard": "^16.0.3",
     "tap": "^12.1.0",
     "tape": "^4.8.0"
   }

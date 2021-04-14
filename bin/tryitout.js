@@ -46,10 +46,10 @@ const cli = woof(`
 if (cli.help || cli.version) process.exit(0);
 
 (async function () {
-  let spinner = new Loader('Parsing .tryitout').start()
+  const spinner = new Loader('Parsing .tryitout').start()
 
   try {
-    let config = await parse({
+    const config = await parse({
       sourcePath: cli.source,
       template: cli.template,
       output: cli.output
@@ -68,6 +68,6 @@ if (cli.help || cli.version) process.exit(0);
   } catch (ex) {
     spinner.stop()
 
-    return process.stdout.write(`An error occured while compiling \n ${ex.toString()} \n`)
+    return process.stdout.write(`An error occured while compiling \n ${ex.stack} \n`)
   }
 }())

@@ -1,14 +1,10 @@
-.panel, .panel-body, .ace_editor, .textarea, .textarea-container {
+.panel, .panel-body, .textarea, .textarea-container {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .panel, .panel-body, .panel-footer, .panel-header {
   padding: 0 !important;
-}
-
-.ace_editor {
-  font-size: 1em !important;
 }
 
 .description {
@@ -23,6 +19,7 @@
   font-family: monospace;
   line-height: 28px;
   min-height: 37px;
+  padding: 6px;
 }
 
 .console .output {
@@ -77,11 +74,8 @@
   -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-  color: transparent;
   background: transparent;
   color: black;
-  text-shadow: 0px 0px 0px transparent;
-  -webkit-text-fill-color: transparent;
   margin: 0;
   padding: 10px;
   outline: none;
