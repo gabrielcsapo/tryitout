@@ -1,6 +1,6 @@
 {
   "name": "tryitout",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "🎩 build interactive doc pages with configuration files",
   "main": "./bin/tryitout.js",
   "scripts": {
@@ -52,6 +52,7 @@
     "core-js": "^3.10.1",
     "css-loader": "^5.2.1",
     "dedent": "^0.7.0",
+    "file-loader": "^6.2.0",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
     "html-webpack-plugin": "^4.0.0-alpha",
     "marked": "^2.0.3",
@@ -75,7 +76,6 @@
     "@storybook/addon-a11y": "^6.1.5",
     "@storybook/react": "~6.1.5",
     "babel-eslint": "^10.0.1",
-    "file-loader": "^6.2.0",
     "standard": "^16.0.3",
     "tap": "^12.1.0",
     "tape": "^4.8.0"

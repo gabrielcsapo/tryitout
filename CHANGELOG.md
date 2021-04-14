@@ -1,3 +1,7 @@
+# 2.2.2 (04/13/2021)
+
+- publishes required files to build
+
 # 2.2.1 (04/13/2021)
 
 - publishes required files to build
